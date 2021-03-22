@@ -23,6 +23,9 @@ namespace CoffeeShopProject
         public MainWindow()
         {
             InitializeComponent();
+
+            BDConnection test = new BDConnection();
+            test.CheckConnection();
         }
     }
 }
