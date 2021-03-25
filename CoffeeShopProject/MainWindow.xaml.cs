@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace CoffeeShopProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Empleados man = new Empleados();
+            man.Show();
         }
     }
 }
