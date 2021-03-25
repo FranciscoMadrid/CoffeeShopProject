@@ -1,0 +1,51 @@
+﻿<Window x:Class="proyecto.Clientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:proyecto"
+        mc:Ignorable="d"
+        Title="Clientes" MinHeight="458" MinWidth="781" ResizeMode="CanResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="268" Width="268*"/>
+            <ColumnDefinition MinWidth="500" Width="500*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="25" Height="25*"/>
+            <RowDefinition MinHeight="125" Height="155*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="gbClienteDetalles" Grid.Column="0" Grid.Row="1" Header="Informacion del Cliente" Margin="0, 10, 5, 180" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Primer Nombre:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Margin="5, 3, 5, 3"/>
+
+                <Label Content="Apellido: " Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtApellido" Grid.Row="3" Grid.Column="1" Margin="5, 3, 5, 3"/>
+
+                <Label Content="Estado: " Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"/>
+                <ComboBox Name="cbEstado" Grid.Row="5" Grid.Column="1" Margin="5, 3, 5, 3">
+                    <ComboBoxItem Content="Activado" TabIndex="1"/>
+                    <ComboBoxItem Content="Desactivado" TabIndex="0"/>
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+        <Label Content="Detalles de Clientes en el sistema" Grid.Column="1" Grid.Row="0"/>
+        <DataGrid Grid.Row="1" Grid.Column="1" Margin="15, 10, 15, 10">
+            
+        </DataGrid>
+    </Grid>
+</Window>
