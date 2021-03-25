@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows;
 
 namespace CoffeeShopProject
 {
@@ -11,7 +12,7 @@ namespace CoffeeShopProject
     {
         private static string SQLConnectionString = @"server = (local)\SQLEXPRESS; Initial Catalog = CoffeeShopDB; Integrated Security = True";
 
-        private SqlConnection sqlConnection = new SqlConnection(SQLConnectionString);
+        protected SqlConnection sqlConnection = new SqlConnection(SQLConnectionString);
 
         public BDConnection()
         {
@@ -23,11 +24,12 @@ namespace CoffeeShopProject
             try
             {
                 sqlConnection.Open();
+                MessageBox.Show("Estas connectado a " + sqlConnection.Database.ToString() + " exitosamente!!");
             }
             catch (Exception ex)
             {
                 sqlConnection.Close();
-                Console.WriteLine("Error: {0} {1}", ex.Message, ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
