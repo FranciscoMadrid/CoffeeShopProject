@@ -16,6 +16,7 @@ namespace CoffeeShopProject
         
         public EmpleadosUsuarios()
         {
+            Id = 0;
             PrimerNombre = null;
             UltimoNombre = null;
             Correo = null;
@@ -27,8 +28,8 @@ namespace CoffeeShopProject
             Contrasena = null;
         }
 
-        public EmpleadosUsuarios(string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado, int fKTipoUsuario, string usuario, string contrasena) 
-                                 : base(primerNombre, ultimoNombre, correo, direccion, fKCargo, estado)
+        public EmpleadosUsuarios(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado, int fKTipoUsuario, string usuario, string contrasena) 
+                                 : base(id, primerNombre, ultimoNombre, correo, direccion, fKCargo, estado)
         {
             FKTipoUsuario = fKTipoUsuario;
             Usuario = usuario;

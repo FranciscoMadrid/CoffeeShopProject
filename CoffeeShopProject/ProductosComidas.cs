@@ -15,6 +15,7 @@ namespace CoffeeShopProject
         /*Esta clase se encarga en insertar y actualizar los datos en la tabla Productos y Comidas*/
         public ProductosComidas()
         {
+            Id = 0;
             ProductoNombre = null;
             ProductoDesc = null;
             FKCategoria = 0;
@@ -22,8 +23,8 @@ namespace CoffeeShopProject
             Costo = 0;
         }
 
-        public ProductosComidas(string productoNombre, string productoDesc, int fKCategoria, string ingredientes, float costo)
-                                : base(productoNombre, productoDesc, fKCategoria)
+        public ProductosComidas(int id,string productoNombre, string productoDesc, int fKCategoria, string ingredientes, float costo)
+                                : base(id ,productoNombre, productoDesc, fKCategoria)
         {
             Ingredientes = ingredientes;
             Costo = costo;
