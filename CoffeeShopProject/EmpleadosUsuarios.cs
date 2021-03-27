@@ -16,7 +16,6 @@ namespace CoffeeShopProject
         
         public EmpleadosUsuarios()
         {
-            Id = 0;
             PrimerNombre = null;
             UltimoNombre = null;
             Correo = null;
@@ -28,12 +27,12 @@ namespace CoffeeShopProject
             Contrasena = null;
         }
 
-        public EmpleadosUsuarios(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado, int fKTipoUsuario, string usuario, string contrasena) 
-                                 : base(id, primerNombre, ultimoNombre, correo, direccion, fKCargo, estado)
+        public EmpleadosUsuarios(string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado, int fKTipoUsuario, string usuario, string contrasena) 
+                                 : base(primerNombre, ultimoNombre, correo, direccion, fKCargo, estado)
         {
             FKTipoUsuario = fKTipoUsuario;
-            this.Usuario = usuario;
-            this.Contrasena = contrasena;
+            Usuario = usuario;
+            Contrasena = contrasena;
         }
 
         public override void InsertEmpleado()

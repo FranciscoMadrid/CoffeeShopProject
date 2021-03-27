@@ -17,7 +17,6 @@ namespace CoffeeShopProject
 
         public ProductosBebidas()
         {
-            Id = 0;
             ProductoNombre = null;
             ProductoDesc = null;
             FKCategoria = 0;
@@ -26,8 +25,8 @@ namespace CoffeeShopProject
             Costo = 0;
         }
 
-        public ProductosBebidas(int id, string productoNombre, string productoDesc, int fKCategoria, string ingredientes, int fkBebidatamano, float costo) 
-                                : base(id, productoNombre, productoDesc, fKCategoria)
+        public ProductosBebidas(string productoNombre, string productoDesc, int fKCategoria, string ingredientes, int fkBebidatamano, float costo) 
+                                : base(productoNombre, productoDesc, fKCategoria)
         {
             Ingredientes = ingredientes;
             FKBebidatamano = fkBebidatamano;

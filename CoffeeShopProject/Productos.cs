@@ -9,14 +9,12 @@ namespace CoffeeShopProject
 {
     class Productos : BDConnection
     {
-        public int Id { get; set; }
         public string ProductoNombre { get; set; }
         public string ProductoDesc { get; set; }
         public int FKCategoria { get; set; }
 
-        public Productos(int id, string productoNombre, string productoDesc, int fKCategoria)
+        public Productos(string productoNombre, string productoDesc, int fKCategoria)
         {
-            Id = id;
             ProductoNombre = productoNombre;
             ProductoDesc = productoDesc;
             FKCategoria = fKCategoria;
@@ -24,7 +22,6 @@ namespace CoffeeShopProject
 
         public Productos()
         {
-            Id = 0;
             ProductoNombre = null;
             ProductoDesc = null;
             FKCategoria = 0;

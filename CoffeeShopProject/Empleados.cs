@@ -9,7 +9,6 @@ namespace CoffeeShopProject
 {
     class Empleados : BDConnection
     {
-        public int Id { get; set; }
         public string PrimerNombre { get; set; }
         public string UltimoNombre { get; set; }
         public string Correo { get; set; }
@@ -19,9 +18,8 @@ namespace CoffeeShopProject
 
         /*Clase para ingresar datos en la tabla empleado. SOLO LA TABLA EMPLEADO. Solo seria usada cuando solo se quieran alterar los datos en Empleados.
           EJE: Primernombre, ultimo nombre, correo, direcion, cargo o estado. Para hacer cambios en el usuario y la contraseña utilizar EmpleadosUsuarios*/
-        public Empleados(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
+        public Empleados(string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
         {
-            Id = id;
             PrimerNombre = primerNombre;
             UltimoNombre = ultimoNombre;
             Correo = correo;
@@ -32,7 +30,6 @@ namespace CoffeeShopProject
 
         public Empleados()
         {
-            Id = 0;
             PrimerNombre = null;
             UltimoNombre = null;
             Correo = null;
