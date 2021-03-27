@@ -21,6 +21,7 @@ namespace CoffeeShopProject
           EJE: Primernombre, ultimo nombre, correo, direcion, cargo o estado. Para hacer cambios en el usuario y la contraseña utilizar EmpleadosUsuarios*/
         public Empleados(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
         {
+            Id = id;
             PrimerNombre = primerNombre;
             UltimoNombre = ultimoNombre;
             Correo = correo;

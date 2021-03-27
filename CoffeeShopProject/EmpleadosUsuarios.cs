@@ -10,12 +10,13 @@ namespace CoffeeShopProject
     class EmpleadosUsuarios : Empleados
     {
         public int FKTipoUsuario { get; set; }
-        public string usuario { get; set; }
-        public string contrasena { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
 
         
         public EmpleadosUsuarios()
         {
+            Id = 0;
             PrimerNombre = null;
             UltimoNombre = null;
             Correo = null;
@@ -23,16 +24,16 @@ namespace CoffeeShopProject
             FKCargo = 0;
             Estado = 2;
             FKTipoUsuario = 0;
-            usuario = null;
-            contrasena = null;
+            Usuario = null;
+            Contrasena = null;
         }
 
         public EmpleadosUsuarios(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado, int fKTipoUsuario, string usuario, string contrasena) 
                                  : base(id, primerNombre, ultimoNombre, correo, direccion, fKCargo, estado)
         {
             FKTipoUsuario = fKTipoUsuario;
-            this.usuario = usuario;
-            this.contrasena = contrasena;
+            this.Usuario = usuario;
+            this.Contrasena = contrasena;
         }
 
         public override void InsertEmpleado()
@@ -53,8 +54,8 @@ namespace CoffeeShopProject
                 cmd.Parameters.AddWithValue("@Estado", Estado);
 
                 cmd.Parameters.AddWithValue("@FKTipoUsuario", FKTipoUsuario);
-                cmd.Parameters.AddWithValue("@Usuario", usuario);
-                cmd.Parameters.AddWithValue("@Contrasena", contrasena);
+                cmd.Parameters.AddWithValue("@Usuario", Usuario);
+                cmd.Parameters.AddWithValue("@Contrasena", Contrasena);
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -106,8 +107,8 @@ namespace CoffeeShopProject
                     cmd.Parameters.AddWithValue("@FKTipoUsuario", FKTipoUsuario);
                 }
 
-                cmd.Parameters.AddWithValue("@Usuario", usuario);
-                cmd.Parameters.AddWithValue("@Contrasena", contrasena);
+                cmd.Parameters.AddWithValue("@Usuario", Usuario);
+                cmd.Parameters.AddWithValue("@Contrasena", Contrasena);
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
