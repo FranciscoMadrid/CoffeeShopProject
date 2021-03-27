@@ -21,7 +21,7 @@ namespace CoffeeShopProject
             Correo = null;
             Direccion = null;
             FKCargo = 0;
-            Estado = 0;
+            Estado = 2;
             FKTipoUsuario = 0;
             usuario = null;
             contrasena = null;
@@ -50,6 +50,7 @@ namespace CoffeeShopProject
                 cmd.Parameters.AddWithValue("@Correo", Correo);
                 cmd.Parameters.AddWithValue("@Direccion", Direccion);
                 cmd.Parameters.AddWithValue("@FKCargo", FKCargo);
+                cmd.Parameters.AddWithValue("@Estado", Estado);
 
                 cmd.Parameters.AddWithValue("@FKTipoUsuario", FKTipoUsuario);
                 cmd.Parameters.AddWithValue("@Usuario", usuario);
@@ -89,6 +90,11 @@ namespace CoffeeShopProject
                 cmd.Parameters.AddWithValue("@UltimoNombre", UltimoNombre);
                 cmd.Parameters.AddWithValue("@Correo", Correo);
                 cmd.Parameters.AddWithValue("@Direccion", Direccion);
+
+                if(Estado != 2)
+                {
+                    cmd.Parameters.AddWithValue("@Estado", Estado);
+                }
 
                 if(FKCargo != 0)
                 {

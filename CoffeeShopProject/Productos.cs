@@ -9,21 +9,24 @@ namespace CoffeeShopProject
 {
     class Productos : BDConnection
     {
-        public string productoNombre { get; set; }
-        public string productoDesc { get; set; }
+        public int Id { get; set; }
+        public string ProductoNombre { get; set; }
+        public string ProductoDesc { get; set; }
         public int FKCategoria { get; set; }
 
-        public Productos(string productoNombre, string productoDesc, int fKCategoria)
+        public Productos(int id, string productoNombre, string productoDesc, int fKCategoria)
         {
-            this.productoNombre = productoNombre;
-            this.productoDesc = productoDesc;
+            Id = id;
+            ProductoNombre = productoNombre;
+            ProductoDesc = productoDesc;
             FKCategoria = fKCategoria;
         }
 
         public Productos()
         {
-            productoNombre = null;
-            productoDesc = null;
+            Id = 0;
+            ProductoNombre = null;
+            ProductoDesc = null;
             FKCategoria = 0;
         }
 
@@ -39,8 +42,8 @@ namespace CoffeeShopProject
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ProductoNombre", productoNombre);
-                cmd.Parameters.AddWithValue("@ProductoDesc", productoDesc);
+                cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
+                cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 cmd.Parameters.AddWithValue("@FKCategoriaID", FKCategoria);
 
                 sqlConnection.Open();
@@ -69,8 +72,8 @@ namespace CoffeeShopProject
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProductoID", id);
-                cmd.Parameters.AddWithValue("@ProductoNombre", productoNombre);
-                cmd.Parameters.AddWithValue("@ProductoDesc", productoDesc);
+                cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
+                cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 
                 if (FKCategoria != 0)
                 {

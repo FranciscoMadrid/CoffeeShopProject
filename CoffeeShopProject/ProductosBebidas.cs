@@ -9,7 +9,7 @@ namespace CoffeeShopProject
 {
     class ProductosBebidas : Productos
     {
-        public string ingredientes { get; set; }
+        public string Ingredientes { get; set; }
         public int FKBebidatamano { get; set; }
         public float Costo { get; set; }
 
@@ -17,21 +17,23 @@ namespace CoffeeShopProject
 
         public ProductosBebidas()
         {
-            productoNombre = null;
-            productoDesc = null;
+            Id = 0;
+            ProductoNombre = null;
+            ProductoDesc = null;
             FKCategoria = 0;
-            this.ingredientes = null;
+            Ingredientes = null;
             FKBebidatamano = 0;
             Costo = 0;
         }
 
-        public ProductosBebidas(string productoNombre, string productoDesc, int fKCategoria, string ingredientes, int fKBebidatamano, float costo) 
-                                : base(productoNombre, productoDesc, fKCategoria)
+        public ProductosBebidas(int id, string productoNombre, string productoDesc, int fKCategoria, string ingredientes, int fkBebidatamano, float costo) 
+                                : base(id, productoNombre, productoDesc, fKCategoria)
         {
-            this.ingredientes = ingredientes;
-            FKBebidatamano = fKBebidatamano;
+            Ingredientes = ingredientes;
+            FKBebidatamano = fkBebidatamano;
             Costo = costo;
         }
+
 
         /*Llama el SP que se encarga de insertar los datos en la tabla*/
         public override void InsertProducto()
@@ -44,15 +46,15 @@ namespace CoffeeShopProject
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ProductoNombre", productoNombre);
-                cmd.Parameters.AddWithValue("@ProductoDesc", productoDesc);
+                cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
+                cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 cmd.Parameters.AddWithValue("@FKCategoriaID", FKCategoria);
 
                 cmd.Parameters.AddWithValue("@Costo", Costo);
 
-                if (!string.IsNullOrEmpty(ingredientes))
+                if (!string.IsNullOrEmpty(Ingredientes))
                 {
-                    cmd.Parameters.AddWithValue("@Ingredientes", ingredientes);
+                    cmd.Parameters.AddWithValue("@Ingredientes", Ingredientes);
                 }
 
                 if (FKBebidatamano != 0)
@@ -89,11 +91,11 @@ namespace CoffeeShopProject
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@ProductoID", id);
-                cmd.Parameters.AddWithValue("@ProductoNombre", productoNombre);
-                cmd.Parameters.AddWithValue("@ProductoDesc", productoDesc);
+                cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
+                cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 
 
-                cmd.Parameters.AddWithValue("@Ingredientes", ingredientes);
+                cmd.Parameters.AddWithValue("@Ingredientes", Ingredientes);
                 cmd.Parameters.AddWithValue("@Costo", Costo);
 
                 if (FKBebidatamano != 0)

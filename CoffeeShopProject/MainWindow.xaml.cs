@@ -23,7 +23,8 @@ namespace CoffeeShopProject
         public MainWindow()
         {
             InitializeComponent();
-            Productos test = new Productos();
+            EmpleadosUsuarios test = new EmpleadosUsuarios(1,"richard", "matey", "asd", "dontknow", 1, 1, 2, "aye", "mate");
+            
         }
     }
 }

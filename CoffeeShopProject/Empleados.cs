@@ -21,7 +21,6 @@ namespace CoffeeShopProject
           EJE: Primernombre, ultimo nombre, correo, direcion, cargo o estado. Para hacer cambios en el usuario y la contraseña utilizar EmpleadosUsuarios*/
         public Empleados(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
         {
-            Id = id;
             PrimerNombre = primerNombre;
             UltimoNombre = ultimoNombre;
             Correo = correo;
@@ -32,7 +31,13 @@ namespace CoffeeShopProject
 
         public Empleados()
         {
-
+            Id = 0;
+            PrimerNombre = null;
+            UltimoNombre = null;
+            Correo = null;
+            Direccion = null;
+            FKCargo = 0;
+            Estado = 2;
         }
         /*Llama el SP que se encarga de insertar los datos en la tabla*/
         public virtual void InsertEmpleado()
@@ -50,6 +55,8 @@ namespace CoffeeShopProject
                 cmd.Parameters.AddWithValue("@Correo", Correo);
                 cmd.Parameters.AddWithValue("@Direccion", Direccion);
                 cmd.Parameters.AddWithValue("@FKCargoID", FKCargo);
+                cmd.Parameters.AddWithValue("@Estado", Estado);
+
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -86,7 +93,12 @@ namespace CoffeeShopProject
                 cmd.Parameters.AddWithValue("@Correo", Correo);
                 cmd.Parameters.AddWithValue("@Direccion", Direccion);
 
-                if(FKCargo != 0)
+                if (Estado != 2)
+                {
+                    cmd.Parameters.AddWithValue("@Estado", Estado);
+                }
+
+                if (FKCargo != 0)
                 {
                     cmd.Parameters.AddWithValue("@FKCargoID", FKCargo);
                 }

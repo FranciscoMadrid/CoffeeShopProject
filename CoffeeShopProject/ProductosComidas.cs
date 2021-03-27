@@ -9,23 +9,24 @@ namespace CoffeeShopProject
 {
     class ProductosComidas : Productos
     {
-        public string ingredientes { get; set; }
+        public string Ingredientes { get; set; }
         public float Costo { get; set; }
 
         /*Esta clase se encarga en insertar y actualizar los datos en la tabla Productos y Comidas*/
         public ProductosComidas()
         {
-            productoNombre = null;
-            productoDesc = null;
+            Id = 0;
+            ProductoNombre = null;
+            ProductoDesc = null;
             FKCategoria = 0;
-            this.ingredientes = null;
+            Ingredientes = null;
             Costo = 0;
         }
 
-        public ProductosComidas(string productoNombre, string productoDesc, int fKCategoria, string ingredientes, float costo)
-                          : base(productoNombre, productoDesc, fKCategoria)
+        public ProductosComidas(int id, string productoNombre, string productoDesc, int fKCategoria, string ingredientes, float costo)
+                                : base(id, productoNombre, productoDesc, fKCategoria)
         {
-            this.ingredientes = ingredientes;
+            Ingredientes = ingredientes;
             Costo = costo;
         }
 
@@ -40,10 +41,10 @@ namespace CoffeeShopProject
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ProductoNombre", productoNombre);
-                cmd.Parameters.AddWithValue("@ProductoDesc", productoDesc);
+                cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
+                cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 cmd.Parameters.AddWithValue("@FKCategoriaID", FKCategoria);
-                cmd.Parameters.AddWithValue("@Ingredientes", ingredientes);
+                cmd.Parameters.AddWithValue("@Ingredientes", Ingredientes);
                 cmd.Parameters.AddWithValue("@Costo", Costo);
 
                 sqlConnection.Open();
@@ -75,9 +76,9 @@ namespace CoffeeShopProject
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProductoID", id);
-                cmd.Parameters.AddWithValue("@ProductoNombre", productoNombre);
-                cmd.Parameters.AddWithValue("@ProductoDesc", productoDesc);
-                cmd.Parameters.AddWithValue("@Ingredientes", ingredientes);
+                cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
+                cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
+                cmd.Parameters.AddWithValue("@Ingredientes", Ingredientes);
                 cmd.Parameters.AddWithValue("@Costo", Costo);
 
                 if (FKCategoria != 0)
