@@ -7,19 +7,24 @@
         mc:Ignorable="d"
         Title="Inventariocd " Height="467" Width="764">
     <Grid>
-		<Label Content="ID" HorizontalAlignment="Left" Margin="64, 54, 0 , 0" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.645, 0.64"></Label>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="64, 54, 0 , 0" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.645, 0.64"></Label>
         <TextBox Name="txtId" HorizontalAlignment="left" Margin="139,49,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="160" ></TextBox>
-    <TextBox x:Name="txtnombre" HorizontalAlignment="Left" Margin="139,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <TextBox x:Name="txtnombre" HorizontalAlignment="Left" Margin="139,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="37,93,0,0" VerticalAlignment="Top" Width="58"/>
-        <TextBox x:Name="cmbcategoria" HorizontalAlignment="Left" Margin="139,153,0,0" VerticalAlignment="Top" Width="160">
+        <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Margin="139,153,0,0" VerticalAlignment="Top" Width="160">
         </TextBox>
         <Label Content="Categoria" HorizontalAlignment="Left" Margin="37,151,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid x:Name="dtproductos" Margin="34,248,34,34"/>
+        <Label Content="Cantidad" HorizontalAlignment="Left" Margin="37,186,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Name="txtCantidad" HorizontalAlignment="Left" Margin="139,186,0,0" VerticalAlignment="Top" Width="160">
+        </TextBox>
+        <DataGrid x:Name="dtproductos" Margin="34,272,34,10"/>
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="595,61,0,0" VerticalAlignment="Top" Width="77" Height="29"/>
         <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="595,169,0,0" VerticalAlignment="Top" Width="77" Height="35"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="595,111,0,0" VerticalAlignment="Top" Width="77" Height="33"/>
-        <TextBox x:Name="txtcosto" HorizontalAlignment="Left" Margin="139,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <Label Content="Costo" HorizontalAlignment="Left" Margin="42,200,0,0" VerticalAlignment="Top" Width="75"/>
-    
-</Grid>
+        <TextBox x:Name="txtcosto" HorizontalAlignment="Left" Margin="139,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <Label Content="Costo" HorizontalAlignment="Left" Margin="42,217,0,0" VerticalAlignment="Top" Width="75"/>
+        <DatePicker Name="dtFecha"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="425,52,0,0"/>
+        <Label Content="Fecha de Ingreso:" HorizontalAlignment="Left" Margin="317,50,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
 </Window>
