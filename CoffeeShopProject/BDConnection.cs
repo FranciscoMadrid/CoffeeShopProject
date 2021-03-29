@@ -11,7 +11,7 @@ namespace CoffeeShopProject
     {
         private static string SQLConnectionString = @"server = (local)\SQLEXPRESS; Initial Catalog = CoffeeShopDB; Integrated Security = True";
 
-        private SqlConnection sqlConnection = new SqlConnection(SQLConnectionString);
+        protected SqlConnection sqlConnection = new SqlConnection(SQLConnectionString);
 
         public BDConnection()
         {
