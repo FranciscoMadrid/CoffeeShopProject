@@ -29,7 +29,7 @@
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="40,292,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="___No_Name_" Content="Clave" HorizontalAlignment="Left" Margin="43,512,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="txtusuario" HorizontalAlignment="Left" Margin="150,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" PreviewTextInput="txtusuario_PreviewTextInput" FontSize="14"/>
-        <Button x:Name="btningresar" Content="Ingresar" HorizontalAlignment="Left" Margin="446,527,0,0" VerticalAlignment="Top" Width="112" Height="30" FontSize="16" Click="btningresar_Click"/>
+        <Button x:Name="btningresar" Content="Ingresar" HorizontalAlignment="Left" Margin="446,527,0,0" Width="112" FontSize="16" Click="btningresar_Click" Height="28" VerticalAlignment="Top"/>
         <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="595,527,0,0" VerticalAlignment="Top" Width="106" Height="28" FontSize="16"/>
         <Button x:Name="btnregresar" Content="Regresar" HorizontalAlignment="Left" Margin="731,527,0,0" VerticalAlignment="Top" Height="30" Width="101" FontSize="16"/>
         <Label x:Name="___No_Name__Copy" Content="Estado" HorizontalAlignment="Left" Margin="43,450,0,0" VerticalAlignment="Top" FontSize="14"/>

@@ -31,5 +31,11 @@ namespace CoffeeShopProject
             Empleados man = new Empleados();
             man.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Empleados man = new Empleados();
+            man.Show();
+        }
     }
 }

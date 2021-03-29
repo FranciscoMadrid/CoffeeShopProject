@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShopProject;
+using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -21,8 +22,8 @@ namespace proyecto
             cmbestado.SelectedIndex = 0;
             
         }
-        string nombre, apellido, email, usuario, direccion, cargo, estado, clave;
-
+        string nombre, apellido, email, usuario, direccion, clave;
+        int cargo, estado;
         private void txtnombre_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -84,15 +85,19 @@ namespace proyecto
             }
             else
             {
-                MessageBox.Show("Registro Exitoso", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                //MessageBox.Show("Registro Exitoso", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                 //capturar valores
                 nombre = txtnombre.Text;
                 apellido = txtapellido.Text;
                 email = txtemail.Text;
                 direccion = txtdireccion.Text;
-                cargo = cmbcargo.SelectedValue.ToString();
-                estado = cmbestado.SelectedValue.ToString();
+                cargo = cmbcargo.SelectedIndex;
+                estado = cmbestado.SelectedIndex;
                 clave = txtclave.ToString();
+
+                clsEmpleados data = new clsEmpleados( 1,nombre,apellido,email,direccion,cargo,estado  );
+                data.InsertEmpleado();
+
             }
         }
     }
