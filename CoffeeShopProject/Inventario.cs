@@ -9,7 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace CoffeeShopProject
 {
-    class Inventario 
+    class Inventario : BDConnection
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
