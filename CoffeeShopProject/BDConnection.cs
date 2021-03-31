@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows;
 
 namespace CoffeeShopProject
 {
@@ -23,6 +24,7 @@ namespace CoffeeShopProject
             try
             {
                 sqlConnection.Open();
+               
             }
             catch (Exception ex)
             {
