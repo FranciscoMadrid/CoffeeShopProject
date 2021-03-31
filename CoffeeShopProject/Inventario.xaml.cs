@@ -20,11 +20,31 @@ namespace CoffeeShopProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Inventario inventario = new Inventario();
+        private int id = 0;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        
+        //Checkers para validar la entrada de datos validos en nuestros textbox
+
+        private bool CheckInventarioData()
+        {
+            if ( txtCantidad.Text == string.Empty || txtcosto.Text == string.Empty)
+            {
+                MessageBox.Show("Porfavor Ingrese los datos necesarios en las cajas de texto");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnIngresar_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckInventarioData()) 
+            {
+                inventario.InsertInventario();
+            }
+        }
     }
 }

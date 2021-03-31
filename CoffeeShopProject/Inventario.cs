@@ -43,7 +43,7 @@ namespace CoffeeShopProject
 
         }
 
-        public virtual void InsertEmpleado() 
+        public virtual void InsertInventario() 
         {
             try
             {
@@ -52,8 +52,9 @@ namespace CoffeeShopProject
                 SqlCommand cmd = new SqlCommand(spInventario, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Nombre", Nombre);
-                cmd.Parameters.AddWithValue("@Categoria", Categoria);
+                cmd.Parameters.AddWithValue("FKProductoID", Id);
+               // cmd.Parameters.AddWithValue("@Nombre", Nombre);
+               // cmd.Parameters.AddWithValue("@Categoria", Categoria);
                 cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
                 cmd.Parameters.AddWithValue("@Precio", Costo);
                 cmd.Parameters.AddWithValue("@FechaInicial", Fecha);
@@ -90,7 +91,7 @@ namespace CoffeeShopProject
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@InventarioID", id);
-                cmd.Parameters.AddWithValue("Nombre", Nombre);
+              //  cmd.Parameters.AddWithValue("Nombre", Nombre);
                 cmd.Parameters.AddWithValue("@Categoria", Categoria);
                 cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
                 cmd.Parameters.AddWithValue("@Precio", Costo);
