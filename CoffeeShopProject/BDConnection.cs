@@ -10,7 +10,7 @@ namespace CoffeeShopProject
 {
     class BDConnection
     {
-        private static string SQLConnectionString = @"server = .\;Initial Catalog = CoffeShopDB; Integrated Security = true; User=(local)/SQLEXPRESS; pwd=admin123";
+        private static string SQLConnectionString = @"server = (local); Initial Catalog = CoffeeShopDB; Integrated Security = True;";
 
         protected SqlConnection sqlConnection = new SqlConnection (SQLConnectionString);
 
@@ -23,13 +23,15 @@ namespace CoffeeShopProject
         {
             try
             {
+
                 sqlConnection.Open();
+                MessageBox.Show("all good  " + sqlConnection.Database.ToString());
                
             }
             catch (Exception ex)
             {
                 sqlConnection.Close();
-                Console.WriteLine("Error: {0} {1}", ex.Message, ex.StackTrace);
+                MessageBox.Show(ex.Message);
 
 
             }

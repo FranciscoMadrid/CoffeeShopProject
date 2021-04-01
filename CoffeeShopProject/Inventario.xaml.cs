@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CoffeeShopProject
 {
@@ -26,7 +27,11 @@ namespace CoffeeShopProject
         public MainWindow()
         {
             InitializeComponent();
+            BDConnection connection = new BDConnection();
+            connection.CheckConnection();
         }
+
+        
 
         //Checkers para validar la entrada de datos validos en nuestros textbox
 
