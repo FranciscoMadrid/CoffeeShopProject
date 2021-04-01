@@ -27,8 +27,10 @@ namespace CoffeeShopProject
         public MainWindow()
         {
             InitializeComponent();
+            ShowInventario();
             BDConnection connection = new BDConnection();
             connection.CheckConnection();
+
         }
 
         
@@ -45,6 +47,8 @@ namespace CoffeeShopProject
             return true;
         }
 
+
+
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
             if (CheckInventarioData()) 
@@ -52,5 +56,12 @@ namespace CoffeeShopProject
                 inventario.InsertInventario();
             }
         }
+
+        //Esto nos muestra los productos en el datagridview
+        private void ShowInventario() 
+        {
+            dgproductos.ItemsSource = inventario.ShowProducto().DefaultView;
+        }
+
     }
 }

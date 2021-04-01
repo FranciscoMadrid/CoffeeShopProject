@@ -16,12 +16,12 @@ namespace CoffeeShopProject
         public string Categoria { get; set; }
         public double Costo { get; set; }
         public double Cantidad { get; set; }
-        public DateTime Fecha { get; set; }
-
-
+        public string Fecha { get; set; } = DateTime.Now.ToString("dd/MM/yyyy"); 
+        
+       
         //Clase para ingresar datos en la tabla empleado
 
-        public Inventario(int id, string nombre, string categoria,double cantidad, double costo, DateTime fecha)
+        public Inventario(int id, string nombre, string categoria,double cantidad, double costo, string fecha)
         {
             Id = id;
             Nombre = nombre;
@@ -30,7 +30,6 @@ namespace CoffeeShopProject
             Costo = costo;
             Fecha = fecha;
 
-        
         }
         public Inventario() 
         {
@@ -48,7 +47,6 @@ namespace CoffeeShopProject
             try
             {
                 string spInventario = @"[dbo].[sp_Inventario_Insert]";
-
                 SqlCommand cmd = new SqlCommand(spInventario, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -109,5 +107,41 @@ namespace CoffeeShopProject
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public DataTable ShowProducto()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+
+                string spProducto = @"[dbo].[sp_Productos_Show]";
+                SqlCommand cmd = new SqlCommand(spProducto, sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+                dataAdapter.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+
+        }
+
+
+
+
     }
 }
