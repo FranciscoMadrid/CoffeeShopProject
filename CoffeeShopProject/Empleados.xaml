@@ -18,29 +18,26 @@
         <Label Content="Primer Apellido" HorizontalAlignment="Left" Margin="43,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,-2.117" FontSize="14"/>
         <TextBox x:Name="txtemail" HorizontalAlignment="Left" Margin="150,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.5,-2.893" FontSize="14"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="39,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.339,-2.233" FontSize="14"/>
-        <Label Content="direccion" HorizontalAlignment="Left" Margin="39,348,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Cargo" HorizontalAlignment="Left" Margin="43,403,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.287,-1.579" FontSize="14"/>
-        <TextBox x:Name="txtdireccion" HorizontalAlignment="Left" Margin="150,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.521,0.67" FontSize="14"/>
-        <ComboBox x:Name="cmbcargo" HorizontalAlignment="Left" Margin="150,403,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,-2.23" FontSize="14">
+        <Label Content="direccion" HorizontalAlignment="Left" Margin="40,282,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Cargo" HorizontalAlignment="Left" Margin="44,337,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.287,-1.579" FontSize="14"/>
+        <TextBox x:Name="txtdireccion" HorizontalAlignment="Left" Margin="151,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="188" RenderTransformOrigin="0.521,0.67" FontSize="14"/>
+        <ComboBox x:Name="cmbcargo" HorizontalAlignment="Left" Margin="151,337,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,-2.23" FontSize="14">
             <ComboBoxItem Content="Vendedor"/>
             <ComboBoxItem Content="Gerente"/>
         </ComboBox>
-        <DataGrid x:Name="dtempleados" Margin="377,145,10,87"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="40,292,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="___No_Name_" Content="Clave" HorizontalAlignment="Left" Margin="43,512,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="txtusuario" HorizontalAlignment="Left" Margin="150,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" PreviewTextInput="txtusuario_PreviewTextInput" FontSize="14"/>
+        <DataGrid x:Name="dtempleados" Margin="377,145,10,87" SelectionChanged="dtempleados_SelectionChanged"/>
         <Button x:Name="btningresar" Content="Ingresar" HorizontalAlignment="Left" Margin="446,527,0,0" Width="112" FontSize="16" Click="btningresar_Click" Height="28" VerticalAlignment="Top"/>
-        <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="595,527,0,0" VerticalAlignment="Top" Width="106" Height="28" FontSize="16"/>
-        <Button x:Name="btnregresar" Content="Regresar" HorizontalAlignment="Left" Margin="731,527,0,0" VerticalAlignment="Top" Height="30" Width="101" FontSize="16"/>
-        <Label x:Name="___No_Name__Copy" Content="Estado" HorizontalAlignment="Left" Margin="43,450,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="cmbestado" HorizontalAlignment="Left" Margin="150,454,0,0" VerticalAlignment="Top" Width="120" FontSize="14">
+        <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="595,527,0,0" VerticalAlignment="Top" Width="106" Height="28" FontSize="16" Click="btnmodificar_Click"/>
+        <Button x:Name="btnregresar" Content="Eliminar" HorizontalAlignment="Left" Margin="731,527,0,0" VerticalAlignment="Top" Height="30" Width="101" FontSize="16" Click="btnregresar_Click"/>
+        <Label x:Name="___No_Name__Copy" Content="Estado" HorizontalAlignment="Left" Margin="44,384,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox x:Name="cmbestado" HorizontalAlignment="Left" Margin="151,388,0,0" VerticalAlignment="Top" Width="120" FontSize="14">
             <ComboBoxItem Content="Activo"/>
             <ComboBoxItem Content="Inactivo"/>
         </ComboBox>
-        <PasswordBox x:Name="txtclave" HorizontalAlignment="Left" Margin="150,522,0,0" VerticalAlignment="Top" Width="188" FontSize="14"/>
-        <StackPanel x:Name="panel1" Margin="0,16,-33,469" Grid.ColumnSpan="2">
+        <StackPanel x:Name="panel1" Margin="0,16,-33,505" Grid.ColumnSpan="2">
             <Label Content="Registro de Empleados" Width="386" FontSize="36" RenderTransformOrigin="0.633,2.013" Height="82"/>
         </StackPanel>
+        <Button x:Name="btnNewUser" Content="add user" HorizontalAlignment="Left" Margin="774,103,0,0" VerticalAlignment="Top" Height="37" Width="88" Click="btnNewUser_Click"/>
 
     </Grid>
 </Window>

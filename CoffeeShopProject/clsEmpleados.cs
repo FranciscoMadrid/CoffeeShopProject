@@ -120,5 +120,34 @@ namespace CoffeeShopProject
                 sqlConnection.Close();
             }
         }
+
+        public virtual void EliminarEmpleado(int id)
+        {
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = "DELETE Empleados WHERE EmpleadoID=@id";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+
+                //cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Delete good");
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show("Error " + ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
     }
 }
