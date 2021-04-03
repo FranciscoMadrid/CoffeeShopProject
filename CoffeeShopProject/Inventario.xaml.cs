@@ -51,10 +51,22 @@ namespace CoffeeShopProject
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckInventarioData()) 
+            if (CheckInventarioData())
             {
+                inventario.Id = int.Parse(txtId.Text);
+                inventario.Cantidad = double.Parse(txtCantidad.Text);
+                inventario.Costo = double.Parse(txtcosto.Text);
+                inventario.Fecha =  dtFecha.ToString(); 
+
                 inventario.InsertInventario();
+                
             }
+            else 
+            {
+                MessageBox.Show("No es posible");
+            }
+        
+        
         }
 
         //Esto nos muestra los productos en el datagridview
@@ -63,5 +75,26 @@ namespace CoffeeShopProject
             dgproductos.ItemsSource = inventario.ShowProducto().DefaultView;
         }
 
+        private void GetDatosInventario() 
+        {
+            inventario.Id = id;
+        }
+
+        private void FillProductoData() 
+        {
+            DataRowView dataRow = (DataRowView)dgproductos.SelectedItem;
+            if (dataRow != null)
+            {
+                id = int.Parse(dataRow[0].ToString());
+
+
+            }
+
+        }
+
+        private void dgproductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillProductoData();
+        }
     }
 }

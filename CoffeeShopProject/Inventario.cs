@@ -16,7 +16,7 @@ namespace CoffeeShopProject
         public string Categoria { get; set; }
         public double Costo { get; set; }
         public double Cantidad { get; set; }
-        public string Fecha { get; set; } = DateTime.Now.ToString("dd/MM/yyyy"); 
+        public string Fecha { get; set; } = DateTime.Now.ToString("yyyy/MM/dd"); 
         
        
         //Clase para ingresar datos en la tabla empleado
@@ -55,7 +55,7 @@ namespace CoffeeShopProject
                // cmd.Parameters.AddWithValue("@Categoria", Categoria);
                 cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
                 cmd.Parameters.AddWithValue("@Precio", Costo);
-                cmd.Parameters.AddWithValue("@FechaInicial", Fecha);
+                cmd.Parameters.AddWithValue("@FechaInicial", Convert.ToDateTime(Fecha));
 
 
                 sqlConnection.Open();
