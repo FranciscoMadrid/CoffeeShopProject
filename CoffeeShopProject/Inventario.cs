@@ -108,6 +108,39 @@ namespace CoffeeShopProject
             }
         }
 
+        public DataTable ShowInventario() 
+        {
+            DataTable dt = new DataTable();
+
+
+
+            try
+            {
+                sqlConnection.Open();
+                string spInventario = "@[dbo].[sp_Inventario_Show]";
+                SqlCommand cmd = new SqlCommand(spInventario, sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+
+        }
+
         public DataTable ShowProducto()
         {
             DataTable dt = new DataTable();

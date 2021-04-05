@@ -72,12 +72,21 @@ namespace CoffeeShopProject
         //Esto nos muestra los productos en el datagridview
         private void ShowInventario() 
         {
-            dgproductos.ItemsSource = inventario.ShowProducto().DefaultView;
+            
+                dgproductos.ItemsSource = inventario.ShowProducto().DefaultView;
+            
+            
+                //dgproductos.ItemsSource = inventario.ShowInventario().DefaultView;
+           
+            
         }
 
         private void GetDatosInventario() 
         {
-            inventario.Id = id;
+            inventario.Id = int.Parse(txtId.Text);
+            //inventario.Cantidad = txtCantidad.Text;
+            inventario.Costo = double.Parse(txtcosto.Text);
+        
         }
 
         private void FillProductoData() 
@@ -85,7 +94,8 @@ namespace CoffeeShopProject
             DataRowView dataRow = (DataRowView)dgproductos.SelectedItem;
             if (dataRow != null)
             {
-                id = int.Parse(dataRow[0].ToString());
+                txtId.Text    = (dataRow[0].ToString());
+                txtcosto.Text = (dataRow[4].ToString());
 
 
             }
