@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Inventariocd " Height="467" Width="550">
     <Grid Margin="0,0,10,0">
+        <Label Content="Inventario Id:" HorizontalAlignment="Left" Margin="379,10,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblInventarioID" Content="-" HorizontalAlignment="Left" Margin="479,10,0,0" VerticalAlignment="Top"/>
+
         <Label Content="ID" HorizontalAlignment="Left" Margin="52,48,0,0" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.645, 0.64"></Label>
         <TextBox Name="txtId" HorizontalAlignment="left" Margin="139,49,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="160" ></TextBox>
         <Label Content="Cantidad" HorizontalAlignment="Left" Margin="37,88,0,0" VerticalAlignment="Top" Width="75"/>
@@ -14,21 +17,24 @@
         </TextBox>
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="360,59,0,0" VerticalAlignment="Top" Width="76" Height="29" Click="btnIngresar_Click"/>
         <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="360,167,0,0" VerticalAlignment="Top" Width="76" Height="35"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="360,109,0,0" VerticalAlignment="Top" Width="76" Height="33"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="360,109,0,0" VerticalAlignment="Top" Width="76" Height="33" Click="btnModificar_Click"/>
         <TextBox x:Name="txtcosto" HorizontalAlignment="Left" Margin="139,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
         <Label Content="Costo" HorizontalAlignment="Left" Margin="40,124,0,0" VerticalAlignment="Top" Width="75"/>
         <DatePicker Name="dtFecha"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,176,0,0"/>
 
         <Label Content="Fecha de Ingreso:" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgproductos" SelectionChanged="dgproductos_SelectionChanged"  SelectionMode="Single"  SelectionUnit="FullRow" IsReadOnly="True" Margin="22,234,36,28" />
-        <TabControl Margin="0,207,0,222"  >
+
+        <TabControl Margin="37,226,38,39"  >
             <TabItem Width="150" Height="20" Header="Productos">
-                <TextBlock  Height="200"/>
+                <TabPanel>
+                    <DataGrid x:Name="dgproductos" Height="150" Width="450" SelectionChanged="dgproductos_SelectionChanged"  SelectionMode="Single"  SelectionUnit="FullRow" IsReadOnly="True" />
+                </TabPanel>
             </TabItem>
             <TabItem Width="150" Height="20" Header="Inventario">
-                <TextBlock  Height="200"/>
+                <TabPanel>
+                    <DataGrid x:Name="dgInventario"  Height="150" Width="450" SelectionMode="Single"  SelectionUnit="FullRow" IsReadOnly="True" SelectionChanged="dgInventario_SelectionChanged"></DataGrid>
+                </TabPanel>
             </TabItem>
-
         </TabControl>
 
 

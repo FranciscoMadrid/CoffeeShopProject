@@ -12,6 +12,7 @@ namespace CoffeeShopProject
     class Inventario : BDConnection
     {
         public int Id { get; set; }
+        public int InvID { get; set; }
         public string Nombre { get; set; }
         public string Categoria { get; set; }
         public double Costo { get; set; }
@@ -21,9 +22,10 @@ namespace CoffeeShopProject
        
         //Clase para ingresar datos en la tabla empleado
 
-        public Inventario(int id, string nombre, string categoria,double cantidad, double costo, string fecha)
+        public Inventario(int id, int invID, string nombre, string categoria,double cantidad, double costo, string fecha)
         {
             Id = id;
+            InvID = invID;
             Nombre = nombre;
             Categoria = categoria;
             Cantidad = cantidad;
@@ -34,6 +36,7 @@ namespace CoffeeShopProject
         public Inventario() 
         {
             Id = 0;
+            InvID = 0;
             Nombre = null;
             Categoria = null;
             Cantidad = 0;
@@ -80,7 +83,7 @@ namespace CoffeeShopProject
 
         }
         //Funcion Update para la tabla Inventario
-        public virtual void UpdateInventario(int id)
+        public virtual void UpdateInventario()
         {
             try
             {
@@ -88,12 +91,11 @@ namespace CoffeeShopProject
                 SqlCommand cmd = new SqlCommand(spInventario, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@InventarioID", id);
-              //  cmd.Parameters.AddWithValue("Nombre", Nombre);
-                cmd.Parameters.AddWithValue("@Categoria", Categoria);
+                cmd.Parameters.AddWithValue("@InventarioID", InvID);
+                cmd.Parameters.AddWithValue("@FKProductoID", Id);
                 cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
                 cmd.Parameters.AddWithValue("@Precio", Costo);
-                cmd.Parameters.AddWithValue("@FechaInicial", Fecha);
+                cmd.Parameters.AddWithValue("@FechaInicial", Convert.ToDateTime(Fecha));
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -117,7 +119,7 @@ namespace CoffeeShopProject
             try
             {
                 sqlConnection.Open();
-                string spInventario = "@[dbo].[sp_Inventario_Show]";
+                string spInventario = @"[dbo].[sp_Inventario_Show]";
                 SqlCommand cmd = new SqlCommand(spInventario, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -172,9 +174,6 @@ namespace CoffeeShopProject
             return dt;
 
         }
-
-
-
 
     }
 }

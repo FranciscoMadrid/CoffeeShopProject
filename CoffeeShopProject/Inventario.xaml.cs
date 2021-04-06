@@ -28,6 +28,7 @@ namespace CoffeeShopProject
         {
             InitializeComponent();
             ShowInventario();
+            ShowProducto();
             BDConnection connection = new BDConnection();
             connection.CheckConnection();
 
@@ -39,7 +40,7 @@ namespace CoffeeShopProject
 
         private bool CheckInventarioData()
         {
-            if ( txtCantidad.Text == string.Empty || txtcosto.Text == string.Empty)
+            if ( txtCantidad.Text == string.Empty || txtcosto.Text == string.Empty )
             {
                 MessageBox.Show("Porfavor Ingrese los datos necesarios en las cajas de texto");
                 return false;
@@ -80,6 +81,11 @@ namespace CoffeeShopProject
            
             
         }
+        //Esto nos muestra la tabla Inventario
+        private void ShowProducto() 
+        {
+            dgInventario.ItemsSource = inventario.ShowInventario().DefaultView;
+        }
 
         private void GetDatosInventario() 
         {
@@ -101,10 +107,50 @@ namespace CoffeeShopProject
             }
 
         }
+        private void FillInventarioData() 
+        {
+            DataRowView dataRow = (DataRowView)dgInventario.SelectedItem;
+            if (dataRow != null)
+            {
+                lblInventarioID.Content = (dataRow[0].ToString());
+                txtId.Text = (dataRow[1].ToString());
+                txtCantidad.Text = (dataRow[2].ToString());
+                txtcosto.Text = (dataRow[3].ToString());
+                
+            }
+        }
 
         private void dgproductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             FillProductoData();
+            
+        }
+
+        private void dgInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillInventarioData();
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckInventarioData())
+            {
+                inventario.Id = int.Parse(txtId.Text);
+                inventario.InvID = int.Parse(lblInventarioID.Content.ToString());
+                inventario.Cantidad = double.Parse(txtCantidad.Text);
+                inventario.Costo = double.Parse(txtcosto.Text);
+                inventario.Fecha = dtFecha.ToString();
+
+                inventario.UpdateInventario();
+
+            }
+            else 
+            {
+                MessageBox.Show("Something is wrong");
+            }
+
+            
+           
         }
     }
 }
