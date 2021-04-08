@@ -32,7 +32,8 @@ namespace proyecto
             btnNewUser.IsEnabled = false;
 
         }
-
+        clsEmpleados emp = new clsEmpleados();
+        
         public void loadTable()
         {
             SqlConnection conec = new SqlConnection(@"server = (local)\SQLEXPRESS; Initial Catalog = CoffeeShopDB; Integrated Security = True");
@@ -55,7 +56,9 @@ namespace proyecto
                 
             if (dataRow != null)
             {
+                
                 id = Convert.ToInt32(dataRow[0].ToString());
+                clsEmpleados.idUser = id;
                 txtnombre.Text = dataRow[1].ToString();
                 txtapellido.Text = dataRow[2].ToString();
                 txtemail.Text = dataRow[3].ToString();
@@ -150,6 +153,7 @@ namespace proyecto
         private void btnNewUser_Click(object sender, RoutedEventArgs e)
         {
             new frmNuevoUsuario().Show();
+            btnNewUser.IsEnabled = false;
         }
 
         private void LimpiarForm()

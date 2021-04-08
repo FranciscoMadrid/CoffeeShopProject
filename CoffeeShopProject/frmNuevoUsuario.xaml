@@ -5,17 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoffeeShopProject"
         mc:Ignorable="d"
-        Title="frmNuevoUsuario" Height="397" Width="485">
-    <Grid Margin="0,0,0,13">
+        Title="frmNuevoUsuario" Height="333" Width="485">
+    <Grid Margin="0,0,0,7">
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="82,120,0,0" VerticalAlignment="Top"/>
         <Label Content="Tipo de usuario" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top"/>
-        <Label Content="Clave" HorizontalAlignment="Left" Margin="82,183,0,0" VerticalAlignment="Top"/>
+        <Label Content="Clave" HorizontalAlignment="Left" Margin="82,157,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtusuario" HorizontalAlignment="Left" Margin="192,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cmbtipousuario" HorizontalAlignment="Left" Margin="192,74,0,0" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="txtclave" HorizontalAlignment="Left" Margin="192,0,0,0" VerticalAlignment="Center" Width="120"/>
-        <Label Content="Confirmar clave" HorizontalAlignment="Left" Margin="80,256,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="txtconfirmarclave" HorizontalAlignment="Left" Margin="192,260,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnregistrar" Content="Registrar" HorizontalAlignment="Left" Margin="183,322,0,0" VerticalAlignment="Top" Width="138"/>
+        <PasswordBox x:Name="txtclave" HorizontalAlignment="Left" Margin="192,157,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Confirmar clave" HorizontalAlignment="Left" Margin="82,188,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="txtconfirmarclave" HorizontalAlignment="Left" Margin="192,188,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnregistrar" Content="Registrar" HorizontalAlignment="Left" Margin="183,230,0,0" VerticalAlignment="Top" Width="138" Click="btnregistrar_Click" Height="36"/>
+        <StackPanel x:Name="panel1" Margin="-321,-4,-366,180">
+            <Label Content="Registro de Usuarios" Width="386" FontSize="36" RenderTransformOrigin="0.633,2.013" Height="82"/>
+        </StackPanel>
 
     </Grid>
 </Window>

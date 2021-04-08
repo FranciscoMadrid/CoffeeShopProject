@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proyecto"
         mc:Ignorable="d"
-        Title="Empleados" Height="618" Width="922">
+        Title="Empleados" Height="605" Width="1115">
     <Grid Margin="0,0,-25,19">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="764*"/>
@@ -13,31 +13,31 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="ID_" Content="" HorizontalAlignment="Left" Margin="43,52,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtnombre" HorizontalAlignment="Left" Margin="150,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.479,-2.615" KeyDown="txtnombre_KeyDown" PreviewTextInput="txtnombre_PreviewTextInput" FontSize="14"/>
-        <TextBox x:Name="txtapellido" HorizontalAlignment="Left" Margin="150,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.505,-3.004" PreviewTextInput="txtapellido_PreviewTextInput" FontSize="14"/>
+        <TextBox x:Name="txtapellido" HorizontalAlignment="Left" Margin="149,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.505,-3.004" PreviewTextInput="txtapellido_PreviewTextInput" FontSize="14"/>
         <Label Content="Primer Nombre" HorizontalAlignment="Left" Margin="43,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,-2.348" FontSize="14"/>
-        <Label Content="Primer Apellido" HorizontalAlignment="Left" Margin="43,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,-2.117" FontSize="14"/>
-        <TextBox x:Name="txtemail" HorizontalAlignment="Left" Margin="150,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.5,-2.893" FontSize="14"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="39,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.339,-2.233" FontSize="14"/>
-        <Label Content="direccion" HorizontalAlignment="Left" Margin="40,282,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Cargo" HorizontalAlignment="Left" Margin="44,337,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.287,-1.579" FontSize="14"/>
-        <TextBox x:Name="txtdireccion" HorizontalAlignment="Left" Margin="151,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="188" RenderTransformOrigin="0.521,0.67" FontSize="14"/>
-        <ComboBox x:Name="cmbcargo" HorizontalAlignment="Left" Margin="151,337,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,-2.23" FontSize="14">
+        <Label Content="Primer Apellido" HorizontalAlignment="Left" Margin="39,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,-2.117" FontSize="14"/>
+        <TextBox x:Name="txtemail" HorizontalAlignment="Left" Margin="149,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.5,-2.893" FontSize="14"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="40,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.339,-2.233" FontSize="14"/>
+        <Label Content="Direccion" HorizontalAlignment="Left" Margin="40,256,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Cargo" HorizontalAlignment="Left" Margin="45,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.287,-1.579" FontSize="14"/>
+        <TextBox x:Name="txtdireccion" HorizontalAlignment="Left" Margin="149,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.521,0.67" FontSize="14"/>
+        <ComboBox x:Name="cmbcargo" HorizontalAlignment="Left" Margin="149,304,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,-2.23" FontSize="14">
             <ComboBoxItem Content="Vendedor"/>
             <ComboBoxItem Content="Gerente"/>
         </ComboBox>
-        <DataGrid x:Name="dtempleados" Margin="377,145,10,87" SelectionChanged="dtempleados_SelectionChanged"/>
-        <Button x:Name="btningresar" Content="Ingresar" HorizontalAlignment="Left" Margin="446,527,0,0" Width="112" FontSize="16" Click="btningresar_Click" Height="28" VerticalAlignment="Top"/>
-        <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="595,527,0,0" VerticalAlignment="Top" Width="106" Height="28" FontSize="16" Click="btnmodificar_Click"/>
-        <Button x:Name="btnregresar" Content="Eliminar" HorizontalAlignment="Left" Margin="731,527,0,0" VerticalAlignment="Top" Height="30" Width="101" FontSize="16" Click="btnregresar_Click"/>
-        <Label x:Name="___No_Name__Copy" Content="Estado" HorizontalAlignment="Left" Margin="44,384,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="cmbestado" HorizontalAlignment="Left" Margin="151,388,0,0" VerticalAlignment="Top" Width="120" FontSize="14">
+        <DataGrid x:Name="dtempleados" Margin="392,145,10,87" SelectionChanged="dtempleados_SelectionChanged"/>
+        <Button x:Name="btningresar" Content="Ingresar" HorizontalAlignment="Left" Margin="18,442,0,0" Width="112" FontSize="16" Click="btningresar_Click" Height="28" VerticalAlignment="Top"/>
+        <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="149,442,0,0" Width="106" FontSize="16" Click="btnmodificar_Click" RenderTransformOrigin="0.604,0.394" Height="28" VerticalAlignment="Top"/>
+        <Button x:Name="btnregresar" Content="Eliminar" HorizontalAlignment="Left" Margin="274,440,0,0" Width="101" FontSize="16" Click="btnregresar_Click" Height="30" VerticalAlignment="Top"/>
+        <Label x:Name="___No_Name__Copy" Content="Estado" HorizontalAlignment="Left" Margin="48,357,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <ComboBox x:Name="cmbestado" HorizontalAlignment="Left" Margin="150,359,0,0" VerticalAlignment="Top" Width="120" FontSize="14">
             <ComboBoxItem Content="Activo"/>
             <ComboBoxItem Content="Inactivo"/>
         </ComboBox>
-        <StackPanel x:Name="panel1" Margin="0,16,-33,505" Grid.ColumnSpan="2">
+        <StackPanel x:Name="panel1" Margin="0,16,-33,462" Grid.ColumnSpan="2">
             <Label Content="Registro de Empleados" Width="386" FontSize="36" RenderTransformOrigin="0.633,2.013" Height="82"/>
         </StackPanel>
-        <Button x:Name="btnNewUser" Content="add user" HorizontalAlignment="Left" Margin="774,103,0,0" VerticalAlignment="Top" Height="37" Width="88" Click="btnNewUser_Click"/>
+        <Button x:Name="btnNewUser" Content="Agregar Usuario" Margin="948,103,20,0" VerticalAlignment="Top" Height="37" Click="btnNewUser_Click"/>
 
     </Grid>
 </Window>

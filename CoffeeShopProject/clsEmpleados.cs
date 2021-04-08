@@ -17,6 +17,8 @@ namespace CoffeeShopProject
         public int FKCargo { get; set; }
         public int Estado { get; set; }
 
+        public static int idUser { get; set; }
+
         /*Clase para ingresar datos en la tabla empleado. SOLO LA TABLA EMPLEADO. Solo seria usada cuando solo se quieran alterar los datos en Empleados.
           EJE: Primernombre, ultimo nombre, correo, direcion, cargo o estado. Para hacer cambios en el usuario y la contraseña utilizar EmpleadosUsuarios*/
         public clsEmpleados(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
@@ -137,6 +139,38 @@ namespace CoffeeShopProject
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Delete good");
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show("Error " + ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+        //Registro Empleado Usuario
+        public virtual void InsertEmpleadoUsuario(int id,int tipo, string usuario,string clave)
+        {
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = "INSERT INTO EmpleadosUsuarios VALUES (@FKEmpleadoID,@FKTipoUsuario,@usuario,@clave)";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+
+                //cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@FKEmpleadoID", id);
+                cmd.Parameters.AddWithValue("@FKTipoUsuario", tipo);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Parameters.AddWithValue("@clave", clave);
+                
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("All good");
             }
             catch (Exception ex)
             {
