@@ -21,5 +21,18 @@ namespace CoffeeShopProject
         {
             InitializeComponent();
         }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tbProductos.SelectedIndex == 1)
+            {
+                gbProductoGeneral.Visibility = Visibility.Hidden;
+            }
+            if (tbProductos.SelectedIndex == 0) 
+            {
+                gbProductoGeneral.Visibility = Visibility.Visible;
+            }
+
+        }
     }
 }
