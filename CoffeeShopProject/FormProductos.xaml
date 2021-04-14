@@ -31,43 +31,107 @@
                 </DockPanel>
             </TabItem>
         </TabControl>
-        <GroupBox Visibility="Hidden" Name="gbProductoGeneral" Header="Detalles de Producto" Margin="534,19,10,288" >
+        <GroupBox Name="gbProductoGeneral" Header="Detalles de Producto" Margin="534,19,10,227" >
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="63*"/>
-                    <ColumnDefinition Width="46*"/>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="67*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                <Label Content="Id:"  FontSize="14" Margin="0,0,0,10" Grid.ColumnSpan="2"></Label>
-                <TextBox Name="txtId" Height="15" Width="95" RenderTransformOrigin="0.495,0.503" Margin="120,8,3,88" Grid.ColumnSpan="2"  ></TextBox>
-                <Label Name="Lbl" Content="Nombre Producto:"  FontSize="14" Margin="-1,19,1,-19" Grid.ColumnSpan="2"></Label>
-                <TextBox Name="txtNombre" Height="15" Width="95" RenderTransformOrigin="0.389,0.503" Margin="122,28,1,68" Grid.ColumnSpan="2" ></TextBox>
-                <Label Content="Descripcion:"  FontSize="14" Margin="0,41,0,-41" Grid.ColumnSpan="2"></Label>
-                <TextBox Name="txtDescripcion" Height="15" Width="95" Margin="121,48,2,48" Grid.ColumnSpan="2"  ></TextBox>
-                <Label Content="Categoria:"  FontSize="14" Margin="0,65,0,-65" Grid.ColumnSpan="2"></Label>
-                <ComboBox Name="cmbCategoria" Height="15" Width="95" Margin="122,72,1,24" Grid.ColumnSpan="2" ></ComboBox>
+                <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox Name="txtId" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Name="Lbl" Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
+                <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Descripcion:" Grid.Row="2" Grid.Column="0"/>
+                <TextBox Name="txtDescripcion" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
+                <ComboBox Name="cmbCategoria" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
 
 
             </Grid>
         </GroupBox>
-        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,279">
+        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,227" Visibility="Hidden">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="63*"/>
-                    <ColumnDefinition Width="46*"/>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="67*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                <Label Content="Id:"  FontSize="14" Margin="0,0,0,10" Grid.ColumnSpan="2"></Label>
-                <TextBox Name="txtIdb" Height="15" Width="95" RenderTransformOrigin="0.495,0.503" Margin="120,8,3,88" Grid.ColumnSpan="2"  ></TextBox>
-                <Label  Content="Nombre Producto:"  FontSize="14" Margin="-1,19,1,-19" Grid.ColumnSpan="2"></Label>
-                <TextBox Name="txtNombreb" Height="15" Width="95" RenderTransformOrigin="0.389,0.503" Margin="122,28,1,68" Grid.ColumnSpan="2" ></TextBox>
-                <Label Content="Descripcion:"  FontSize="14" Margin="0,41,0,-41" Grid.ColumnSpan="2"></Label>
-                <TextBox Name="txtDescripcionb" Height="15" Width="95" Margin="121,48,2,48" Grid.ColumnSpan="2"  ></TextBox>
-                <Label Content="Categoria:"  FontSize="14" Margin="0,65,0,-65" Grid.ColumnSpan="2"></Label>
-                <ComboBox Name="cmbCategoriab" Height="15" Width="95" Margin="122,72,1,24" Grid.ColumnSpan="2" ></ComboBox>
-                <Label Content="Ingredientes:" Margin="0,94,0,-94" ></Label>
-                <TextBox Width="95" Height="15" Name="txtIngredienteb" Grid.ColumnSpan="2" Margin="135,100,14,10"></TextBox>
+                <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox Name="txtIdb" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
+                <TextBox Name="txtNombreb" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Descripcion:" Grid.Row="2" Grid.Column="0"/>
+                <TextBox Name="txtDescripcionb" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
+                <ComboBox Name="cmbCategoriab" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Ingredientes:" Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="txtIngredienteb" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Tamaño:" Grid.Row="5" Grid.Column="0"/>
+                <TextBox x:Name="txtTamanob" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Costo:" Grid.Row="6" Grid.Column="0"/>
+                <TextBox x:Name="txtCostob" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Comidas" Margin="534,19,10,227" Visibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Id:"  FontSize="14" Grid.Row="0" Grid.Column="0" Margin="0,0,0,27" Grid.RowSpan="2"/>
+                <TextBox x:Name="txtIdc" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
                 
+                <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                <TextBox x:Name="txtNombreProductoc" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Descripcion:"  Grid.Row="2" Grid.Column="0"/>
+                <TextBox x:Name="txtDescripcionc" Grid.Row="2" Grid.Column="1"  Margin="0,2,0,2"/>
+
+                <Label Content="Categoria:" Grid.Row="3" Grid.Column="0"/>
+                <ComboBox Name="cmbCategoriac" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Ingredientes:" Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="txtIngredientesc" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Costo:" Grid.Row="5" Grid.Column="0"/>
+                <TextBox x:Name="txtcostoc" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
             </Grid>
         </GroupBox>
 
