@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CoffeeShopProject
 {
@@ -17,9 +19,11 @@ namespace CoffeeShopProject
     /// </summary>
     public partial class FormProductos : Window
     {
+        private Productos productos = new Productos();
         public FormProductos()
         {
             InitializeComponent();
+            ShowProductoGeneral();  
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -34,5 +38,12 @@ namespace CoffeeShopProject
             }
 
         }
+
+        private void ShowProductoGeneral() 
+        {
+            dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral().DefaultView;
+        }
+
+
     }
 }
