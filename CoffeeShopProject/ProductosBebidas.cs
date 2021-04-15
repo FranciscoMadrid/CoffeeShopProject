@@ -80,7 +80,7 @@ namespace CoffeeShopProject
             El SP lo hize de tal manera que si se ingresa null en algun campo lo ignora. Si da error por favor avisarme.
             -FFMS*/
 
-        public override void UpdateProducto(int id)
+        public override void UpdateProducto() 
         {
             try
             {

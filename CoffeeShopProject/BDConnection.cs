@@ -10,8 +10,8 @@ namespace CoffeeShopProject
 {
     class BDConnection
     {
-        private static string SQLConnectionString = @"server = (local)\SQLEXPRESS; Initial Catalog = CoffeeShopDB; Integrated Security = True";
-
+        private static string SQLConnectionString = @"server = (local); Initial Catalog = CoffeeShopDB; Integrated Security = True";
+                                                               //(local)\SQLEXPRESS//
         protected SqlConnection sqlConnection = new SqlConnection(SQLConnectionString);
 
         public BDConnection()

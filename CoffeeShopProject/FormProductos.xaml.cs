@@ -23,7 +23,18 @@ namespace CoffeeShopProject
         public FormProductos()
         {
             InitializeComponent();
-            ShowProductoGeneral();  
+            ShowProductoGeneral();
+            CheckProductoData();
+        }
+
+        private bool CheckProductoData() 
+        {
+            if (txtNombre.Text == string.Empty || txtDescripcion.Text == string.Empty || cmbCategoria.Text == string.Empty)
+            {
+                MessageBox.Show("Porfavor Ingresar los datos necesarios en las cajas de texto");
+                return false;
+            }
+            return true;
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,6 +55,64 @@ namespace CoffeeShopProject
             dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral().DefaultView;
         }
 
+        private void GetDatosProducto() 
+        {
+            productos.Id = int.Parse(txtId.Text);
+            productos.ProductoNombre = txtNombre.Text;
+            productos.ProductoDesc = txtDescripcion.Text;
 
+        }
+
+        private void FillProductoData() 
+        {
+            DataRow dataRow = (DataRow)dgProductoGenerales.SelectedItem;
+            if (dataRow != null)
+            {
+                txtId.Text = (dataRow[0].ToString());
+                txtNombre.Text = (dataRow[1].ToString());
+                txtDescripcion.Text = (dataRow[2].ToString());
+
+
+            }
+        }
+
+        private void btnIngresar_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckProductoData())
+            {
+                productos.Id = int.Parse(txtId.Text);
+                productos.ProductoNombre = txtNombre.Text;
+                productos.FKCategoria = int.Parse(cmbCategoria.Text);
+
+                productos.InsertProducto();
+
+            }
+            else 
+            {
+                MessageBox.Show("No es posible");
+            }
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckProductoData())
+            {
+                productos.Id = int.Parse(txtId.Text);
+                productos.ProductoNombre = txtNombre.Text;
+                productos.ProductoDesc = txtDescripcion.Text;
+
+                productos.UpdateProducto();
+
+            }
+            else 
+            {
+                MessageBox.Show("No es posible");   
+            }
+        }
+
+        private void dgProductoGenerales_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillProductoData();
+        }
     }
 }

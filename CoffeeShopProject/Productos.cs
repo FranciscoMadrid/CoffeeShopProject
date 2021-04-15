@@ -62,7 +62,7 @@ namespace CoffeeShopProject
             }
         }
 
-        public virtual void UpdateProducto(int id)
+        public virtual void UpdateProducto()
         {
             try
             {
@@ -71,7 +71,7 @@ namespace CoffeeShopProject
                 SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ProductoID", id);
+                cmd.Parameters.AddWithValue("@ProductoID", Id);
                 cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
                 cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 
@@ -125,7 +125,6 @@ namespace CoffeeShopProject
             return dt;
         
         }
-
 
     }
 }

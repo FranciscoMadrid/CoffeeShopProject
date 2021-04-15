@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="FormProductos" Height="535" Width="800">
     <Grid Margin="0,0,0,64">
-        <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Height="39" Margin="44,258,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="144,258,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Height="39" Margin="44,258,0,0" VerticalAlignment="Top" Width="76" Click="btnIngresar_Click"/>
+        <Button Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="144,258,0,0" VerticalAlignment="Top" Width="76" Click="btnModificar_Click"/>
         <Button Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="39" Margin="240,258,0,0" VerticalAlignment="Top" Width="76"/>
         <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="332,258,0,0" VerticalAlignment="Top" Width="76"/>
         <Button Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="434,258,0,0" VerticalAlignment="Top" Width="76"/>
@@ -17,7 +17,7 @@
         <TabControl Name="tbProductos" Margin="25,57,271,215" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Productos Generales">
                 <DockPanel>
-                    <DataGrid Name="dgProductoGenerales"></DataGrid>
+                    <DataGrid Name="dgProductoGenerales" SelectionChanged="dgProductoGenerales_SelectionChanged"></DataGrid>
                 </DockPanel>
             </TabItem>
             <TabItem Header="Productos Bebidas">
