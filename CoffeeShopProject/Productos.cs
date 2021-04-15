@@ -96,6 +96,38 @@ namespace CoffeeShopProject
             }
         }
 
+        //Query para mostrar los productos generales en el datashow
+        public  DataTable ShowProductoGeneral() 
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+                string spProductoGeneral = @"[dbo].[sp_Productos_Show]";
+                SqlCommand cmd = new SqlCommand(spProductoGeneral,sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+        
+        }
+
+
+
         public DataTable GetCategory()
         {
             DataTable dt = new DataTable();
