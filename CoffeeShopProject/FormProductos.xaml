@@ -27,7 +27,7 @@
             </TabItem>
             <TabItem Header="Productos Comidas">
                 <DockPanel>
-                    <DataGrid Name="dgComidas"></DataGrid>
+                    <DataGrid Name="dgComidas" IsReadOnly="True" SelectionChanged="dgComidas_SelectionChanged"></DataGrid>
                 </DockPanel>
             </TabItem>
         </TabControl>
@@ -60,7 +60,7 @@
                 <ComboBox Name="cmbCategoria" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
             </Grid>
         </GroupBox>
-        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,227">
+        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,227" Visibility="Hidden">
             <Grid x:Name="GridgbBebidas">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="55*"/>
@@ -98,8 +98,8 @@
                 <TextBox x:Name="txtCostob" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Comidas" Name="gbComidas" Margin="534,19,10,227" Visibility="Hidden">
-            <Grid>
+        <GroupBox Header="Comidas" Name="gbComidas" Margin="534,19,10,227">
+            <Grid x:Name="GridgbComidas">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="55*"/>
                     <ColumnDefinition Width="67*"/>
@@ -113,17 +113,17 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Id:"  FontSize="14" Grid.Row="0" Grid.Column="0" Margin="0,0,0,27" Grid.RowSpan="2"/>
-                <TextBox x:Name="txtIdc" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox x:Name="txtIdc" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2" IsReadOnly="True"/>
                 
-                <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0" Margin="0,0,0,26" Grid.RowSpan="2"/>
+                <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
                 <TextBox x:Name="txtNombreProductoc" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
 
                 <Label Content="Descripcion:"  Grid.Row="2" Grid.Column="0"/>
                 <TextBox x:Name="txtDescripcionc" Grid.Row="2" Grid.Column="1"  Margin="0,2,0,2"/>
 
                 <Label Content="Categoria:" Grid.Row="3" Grid.Column="0"/>
-                <ComboBox Name="cmbCategoriac" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                <ComboBox Name="cmbCategoriac" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath ="CategoriaDesc" SelectedValuePath="CategoriaID"/>
 
                 <Label Content="Ingredientes:" Grid.Row="4" Grid.Column="0"/>
                 <TextBox x:Name="txtIngredientesc" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>

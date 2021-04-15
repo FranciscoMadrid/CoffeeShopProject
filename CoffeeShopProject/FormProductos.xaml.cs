@@ -11,7 +11,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace CoffeeShopProject
 {
@@ -24,6 +23,7 @@ namespace CoffeeShopProject
         int TypeOfProducto = 0;
 
         ProductosBebidas Bebidas = new ProductosBebidas();
+        ProductosComidas Comidas = new ProductosComidas();
         public FormProductos()
         {
             InitializeComponent();
@@ -46,11 +46,7 @@ namespace CoffeeShopProject
             }
             if (tbProductos.SelectedIndex == 2)
             {
-                gbProductoGeneral.Visibility = Visibility.Hidden;
-                gbBebidas.Visibility = Visibility.Hidden;
-                gbComidas.Visibility = Visibility.Visible;
-
-                TypeOfProducto = 2;
+                SetUpComidas();
             }
         }
 
@@ -60,6 +56,9 @@ namespace CoffeeShopProject
             {
                 case 1:
                     dgBebidas.ItemsSource = Bebidas.ShowProducto(txtbuscar.Text).DefaultView;
+                    break;
+                case 2:
+                    dgComidas.ItemsSource = Comidas.ShowProducto(txtbuscar.Text).DefaultView;
                     break;
             }
         }
@@ -77,15 +76,30 @@ namespace CoffeeShopProject
             cmbTamano.ItemsSource = Bebidas.GetTamano().DefaultView;
         }
 
+        private void SetUpComidas ()
+        {
+            gbProductoGeneral.Visibility = Visibility.Hidden;
+            gbBebidas.Visibility = Visibility.Hidden;
+            gbComidas.Visibility = Visibility.Visible;
+
+            TypeOfProducto = 2;
+            dgComidas.ItemsSource = Comidas.ShowProducto(txtbuscar.Text).DefaultView;
+            cmbCategoriac.ItemsSource = Comidas.GetCategory().DefaultView;
+        }
+
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
             switch(TypeOfProducto)
             {
                 case 1:
                     InsertBebida();
+                    ClearBebidas();
                     break;
-            }
-            ClearBebidas();
+                case 2:
+                    InsertComida();
+                    ClearComida();
+                    break;
+            } 
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -94,14 +108,26 @@ namespace CoffeeShopProject
             {
                 case 1:
                     UpdateBebida();
+                    ClearBebidas();
+                    break;
+                case 2:
+                    UpdateComida();
+                    ClearComida();
                     break;
             }
-            ClearBebidas();
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            ClearBebidas();
+            switch(TypeOfProducto)
+            {
+                case 1:
+                    ClearBebidas();
+                    break;
+                case 2:
+                    ClearComida();
+                    break;
+            }
             txtbuscar.Clear();
         }
         private void InsertBebida()
@@ -142,6 +168,7 @@ namespace CoffeeShopProject
 
             Bebidas.Costo = float.Parse(txtCostob.Text);
         }
+
 
         private bool CheckBebidaData ()
         {
@@ -185,6 +212,53 @@ namespace CoffeeShopProject
             dgBebidas.ItemsSource = Bebidas.ShowProducto(txtbuscar.Text).DefaultView;
         }
 
+        private void InsertComida()
+        {
+            if (CheckComidaData())
+            {
+                GetComidaData();
+                Comidas.InsertProducto();
+            }
+        }
+
+        private void UpdateComida()
+        {
+            GetComidaData();
+            Comidas.UpdateProducto(Comidas.Id);
+        }
+
+        private bool CheckComidaData()
+        {
+            if (string.IsNullOrEmpty(txtNombreProductoc.Text) || string.IsNullOrEmpty(txtDescripcionc.Text) || string.IsNullOrEmpty(txtcostoc.Text))
+            {
+                MessageBox.Show("Por favor, llene todas las cajas con su informacion");
+                return false;
+            }
+            if (cmbCategoriac.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, selecione la categoria del producto");
+                return false;
+            }
+            return true;
+        }
+        private void GetComidaData()
+        {
+            if (!string.IsNullOrEmpty(txtIdc.Text))
+            {
+                Comidas.Id = int.Parse(txtIdc.Text);
+            }
+            Comidas.ProductoNombre = txtNombreProductoc.Text;
+            Comidas.ProductoDesc = txtDescripcionc.Text;
+
+            if (cmbCategoriac.SelectedIndex != -1)
+            {
+                Comidas.FKCategoria = int.Parse(cmbCategoriac.SelectedValue.ToString());
+            }
+
+            Comidas.Ingredientes = txtIngredientesc.Text;
+            Comidas.Costo = float.Parse(txtcostoc.Text);
+        }
+
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -195,6 +269,30 @@ namespace CoffeeShopProject
             dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral().DefaultView;
         }
 
+        private void dgComidas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dgComidas.SelectedItem;
 
+            if (dataRow != null)
+            {
+                txtIdc.Text = dataRow[0].ToString();
+                txtNombreProductoc.Text = dataRow[1].ToString();
+                txtDescripcionc.Text = dataRow[2].ToString();
+                
+                txtcostoc.Text = dataRow[4].ToString();
+            }
+        }
+        
+        private void ClearComida()
+        {
+            foreach (Control ctr in GridgbComidas.Children)
+            {
+                if (ctr.GetType() == typeof(TextBox))
+                    ((TextBox)ctr).Text = string.Empty;
+                if (ctr.GetType() == typeof(ComboBox))
+                    ((ComboBox)ctr).SelectedIndex = -1;
+                dgComidas.ItemsSource = Comidas.ShowProducto(txtbuscar.Text).DefaultView;
+            }
+        }
     }
 }
