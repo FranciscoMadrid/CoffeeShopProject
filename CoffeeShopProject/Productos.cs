@@ -95,5 +95,31 @@ namespace CoffeeShopProject
                 sqlConnection.Close();
             }
         }
+
+        public DataTable GetCategory()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = "SELECT CategoriaID, CategoriaDesc FROM Categorias";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+        }
     }
 }

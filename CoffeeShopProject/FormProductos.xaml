@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="FormProductos" Height="535" Width="800">
     <Grid Margin="0,0,0,64">
-        <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Height="39" Margin="44,258,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="144,258,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Height="39" Margin="44,258,0,0" VerticalAlignment="Top" Width="76" Click="btnIngresar_Click"/>
+        <Button Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="144,258,0,0" VerticalAlignment="Top" Width="76" Click="btnModificar_Click"/>
         <Button Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="39" Margin="240,258,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="332,258,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="434,258,0,0" VerticalAlignment="Top" Width="76"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Margin="93,22,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="332,258,0,0" VerticalAlignment="Top" Width="76" Click="btnCancelar_Click"/>
+        <Button Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="434,258,0,0" VerticalAlignment="Top" Width="76" Click="btnLimpiar_Click"/>
+        <TextBox x:Name="txtbuscar" HorizontalAlignment="Left" Height="20" Margin="93,22,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" TextChanged="txtbuscar_TextChanged"/>
         <Label Content="Buscar:" HorizontalAlignment="Left" Margin="32,17,0,0" VerticalAlignment="Top"/>
         <TabControl Name="tbProductos" Margin="25,57,271,215" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Productos Generales">
@@ -22,7 +22,7 @@
             </TabItem>
             <TabItem Header="Productos Bebidas">
                 <DockPanel>
-                    <DataGrid Name="dgBebidas"></DataGrid>
+                    <DataGrid Name="dgBebidas" SelectionChanged="dgBebidas_SelectionChanged" IsReadOnly="True"></DataGrid>
                 </DockPanel>
             </TabItem>
             <TabItem Header="Productos Comidas">
@@ -31,7 +31,7 @@
                 </DockPanel>
             </TabItem>
         </TabControl>
-        <GroupBox Name="gbProductoGeneral" Header="Detalles de Producto" Margin="534,19,10,227" >
+        <GroupBox Name="gbProductoGeneral" Header="Detalles de Producto" Margin="534,19,10,227" Visibility="Hidden">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="55*"/>
@@ -58,12 +58,10 @@
 
                 <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
                 <ComboBox Name="cmbCategoria" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
-
-
             </Grid>
         </GroupBox>
-        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,227" Visibility="Hidden">
-            <Grid>
+        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,227">
+            <Grid x:Name="GridgbBebidas">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="55*"/>
                     <ColumnDefinition Width="67*"/>
@@ -79,7 +77,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
-                <TextBox Name="txtIdb" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+                <TextBox Name="txtIdb" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2" IsReadOnly="True"/>
 
                 <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
                 <TextBox Name="txtNombreb" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
@@ -88,19 +86,19 @@
                 <TextBox Name="txtDescripcionb" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
 
                 <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
-                <ComboBox Name="cmbCategoriab" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                <ComboBox Name="cmbCategoriab" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath ="CategoriaDesc" SelectedValuePath="CategoriaID"/>
 
                 <Label Content="Ingredientes:" Grid.Row="4" Grid.Column="0"/>
                 <TextBox x:Name="txtIngredienteb" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
 
                 <Label Content="Tamaño:" Grid.Row="5" Grid.Column="0"/>
-                <TextBox x:Name="txtTamanob" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+                <ComboBox x:Name="cmbTamano" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath="BebidaTamano" SelectedValuePath="BebidaTamanoID"/>
 
                 <Label Content="Costo:" Grid.Row="6" Grid.Column="0"/>
                 <TextBox x:Name="txtCostob" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Comidas" Margin="534,19,10,227" Visibility="Hidden">
+        <GroupBox Header="Comidas" Name="gbComidas" Margin="534,19,10,227" Visibility="Hidden">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="55*"/>
