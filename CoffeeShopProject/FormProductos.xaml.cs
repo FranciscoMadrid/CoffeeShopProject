@@ -27,8 +27,6 @@ namespace CoffeeShopProject
         public FormProductos()
         {
             InitializeComponent();
-            ShowProductoGeneral();
-            CheckProductoData();
         }
 
         private bool CheckProductoData() 
@@ -280,6 +278,35 @@ namespace CoffeeShopProject
             dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral().DefaultView;
         }
 
+        private void ClearComida ()
+        {
+            foreach (Control ctr in GridgbComidas.Children)
+            {
+                if (ctr.GetType() == typeof(TextBox))
+                    ((TextBox)ctr).Text = string.Empty;
+                if (ctr.GetType() == typeof(ComboBox))
+                    ((ComboBox)ctr).SelectedIndex = -1;
+            }
+            dgComidas.ItemsSource = Bebidas.ShowProducto(txtbuscar.Text).DefaultView;
+        }
 
+        private void dgComidas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView dataRow = (DataRowView)dgComidas.SelectedItem;
+
+            if (dataRow != null)
+            {
+                txtIdc.Text = dataRow[0].ToString();
+                txtNombreProductoc.Text = dataRow[1].ToString();
+                txtDescripcionc.Text = dataRow[2].ToString();
+
+                txtcostoc.Text = dataRow[4].ToString();
+            }
+        }
+
+        private void dgProductoGenerales_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

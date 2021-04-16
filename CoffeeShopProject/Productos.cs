@@ -62,7 +62,7 @@ namespace CoffeeShopProject
             }
         }
 
-        public virtual void UpdateProducto()
+        public virtual void UpdateProducto(int id)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace CoffeeShopProject
                 SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ProductoID", Id);
+                cmd.Parameters.AddWithValue("@ProductoID", id);
                 cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
                 cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 
@@ -142,10 +142,6 @@ namespace CoffeeShopProject
         
         }
 
-<<<<<<< HEAD
-=======
-
-
         public DataTable GetCategory()
         {
             DataTable dt = new DataTable();
@@ -171,6 +167,5 @@ namespace CoffeeShopProject
             }
             return dt;
         }
->>>>>>> d846278ef96cc1909059dde0ee41b85d1d7b3e2b
     }
 }
