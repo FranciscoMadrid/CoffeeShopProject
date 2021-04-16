@@ -142,8 +142,7 @@ namespace CoffeeShopProject
         
         }
 
-<<<<<<< HEAD
-=======
+
 
 
         public DataTable GetCategory()
@@ -171,6 +170,6 @@ namespace CoffeeShopProject
             }
             return dt;
         }
->>>>>>> d846278ef96cc1909059dde0ee41b85d1d7b3e2b
+
     }
 }

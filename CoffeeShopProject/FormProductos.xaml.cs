@@ -223,6 +223,19 @@ namespace CoffeeShopProject
             dgBebidas.ItemsSource = Bebidas.ShowProducto(txtbuscar.Text).DefaultView;
         }
 
+        private void ClearComida() 
+        {
+            foreach (Control ctr in GridgbComidas.Children)
+            {
+                if (ctr.GetType() == typeof(TextBox))
+                    ((TextBox)ctr).Text = string.Empty;
+                if (ctr.GetType() == typeof(ComboBox))
+                    ((ComboBox)ctr).SelectedIndex = -1;
+            }
+            dgComidas.ItemsSource = Comidas.ShowProducto(txtbuscar.Text).DefaultView;
+
+        }
+
         private void InsertComida()
         {
             if (CheckComidaData())
