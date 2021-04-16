@@ -37,6 +37,8 @@ namespace CoffeeShopProject
                 GetLoginData();
                 if(CheckEmpleadoID(logins.CheckCuenta()))
                 {
+                    EmpleadoId = logins.CheckCuenta();
+                    TipoUsuario = logins.GetTipoUsuario(EmpleadoId);
                     MessageBox.Show("Ingreso exitoso!");
                 }
                 else

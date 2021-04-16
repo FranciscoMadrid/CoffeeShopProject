@@ -45,5 +45,37 @@ namespace CoffeeShopProject
             }
             return EmpleadoID;
         }
+
+        public int GetTipoUsuario(int id)
+        {
+            int TipoUsuarioID = 0;
+            try
+            {
+                string spNombre = @"[dbo].[sp_TipoUsuarios_ReturnType]";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EmpleadoId", id);
+
+                cmd.Parameters.Add("@TipoUsuarioID", SqlDbType.Int);
+                cmd.Parameters["@TipoUsuarioID"].Direction = ParameterDirection.Output;
+
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+
+                TipoUsuarioID = int.Parse(cmd.Parameters["@TipoUsuarioID"].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return TipoUsuarioID;
+        }
     }
 }

@@ -50,11 +50,5 @@
                 </Grid>
             </Border>
         </DockPanel>
-        <Image Source="/Imagenes/FormLogin/CoffeeB-Login.png" Grid.Column="2" Grid.Row="1"/>
-        <Image Source="/Imagenes/FormLogin/CoffeeB-Login.png" Grid.Column="1" Grid.Row="1" >
-            <Image.RenderTransform>
-                <ScaleTransform ScaleX="-1"/>
-            </Image.RenderTransform>
-        </Image>
     </Grid>
 </Window>
