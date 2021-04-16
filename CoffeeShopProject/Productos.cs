@@ -96,8 +96,24 @@ namespace CoffeeShopProject
             }
         }
 
+        //public DataTable SearchProducto(int tipo)
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    try
+        //    {
+        //        sqlConnection.Open();
+        //        string
+        //    }
+        //    catch { }
+        //    finally { }
+
+        //}
+
+
+
         //Query para mostrar los productos generales en el datashow
-        public  DataTable ShowProductoGeneral() 
+        public DataTable ShowProductoGeneral() 
         {
             DataTable dt = new DataTable();
 
@@ -126,5 +142,35 @@ namespace CoffeeShopProject
         
         }
 
+<<<<<<< HEAD
+=======
+
+
+        public DataTable GetCategory()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = "SELECT CategoriaID, CategoriaDesc FROM Categorias";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+        }
+>>>>>>> d846278ef96cc1909059dde0ee41b85d1d7b3e2b
     }
 }
