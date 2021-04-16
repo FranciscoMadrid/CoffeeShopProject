@@ -95,5 +95,77 @@ namespace CoffeeShopProject
                 sqlConnection.Close();
             }
         }
+
+        //public DataTable SearchProducto(int tipo)
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    try
+        //    {
+        //        sqlConnection.Open();
+        //        string
+        //    }
+        //    catch { }
+        //    finally { }
+
+        //}
+
+
+
+        //Query para mostrar los productos generales en el datashow
+        public DataTable ShowProductoGeneral() 
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+                string spProductoGeneral = @"[dbo].[sp_Productos_Show]";
+                SqlCommand cmd = new SqlCommand(spProductoGeneral,sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+        
+        }
+
+        public DataTable GetCategory()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = "SELECT CategoriaID, CategoriaDesc FROM Categorias";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+        }
     }
 }
