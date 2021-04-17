@@ -23,7 +23,6 @@ namespace CoffeeShopProject
         public MainWindow()
         {
             InitializeComponent();
-            
         }
     }
 }
