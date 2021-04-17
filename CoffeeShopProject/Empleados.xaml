@@ -30,6 +30,9 @@
         <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="149,442,0,0" Width="106" FontSize="16" Click="btnmodificar_Click" RenderTransformOrigin="0.604,0.394" Height="28" VerticalAlignment="Top"/>
         <Button x:Name="btnregresar" Content="Eliminar" HorizontalAlignment="Left" Margin="274,440,0,0" Width="101" FontSize="16" Click="btnregresar_Click" Height="30" VerticalAlignment="Top"/>
         <Label x:Name="___No_Name__Copy" Content="Estado" HorizontalAlignment="Left" Margin="48,357,0,0" VerticalAlignment="Top" FontSize="14"/>
+
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left"  Width="101" Grid.Column="0" Click="btnRegresar_Click_1" Margin="274,475,0,45"/>
+
         <ComboBox x:Name="cmbestado" HorizontalAlignment="Left" Margin="150,359,0,0" VerticalAlignment="Top" Width="120" FontSize="14">
             <ComboBoxItem Content="Activo"/>
             <ComboBoxItem Content="Inactivo"/>

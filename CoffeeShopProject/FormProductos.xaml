@@ -19,6 +19,7 @@
         <Button Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="228,321,0,0" VerticalAlignment="Top" Width="76" Click="btnModificar_Click"/>
         <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="338,321,0,0" VerticalAlignment="Top" Width="76" Click="btnCancelar_Click"/>
         <Button Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="434,321,0,0" VerticalAlignment="Top" Width="76" Click="btnLimpiar_Click"/>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="534,321,0,43" Width="76" Click="btnRegresar_Click"/>
         <TextBox x:Name="txtbuscar" HorizontalAlignment="Left" Height="20" Margin="93,22,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" TextChanged="txtbuscar_TextChanged"/>
         <Label Content="Buscar:" HorizontalAlignment="Left" Margin="32,17,0,0" VerticalAlignment="Top"/>
         <TabControl Name="tbProductos" Margin="25,57,271,129" SelectionChanged="TabControl_SelectionChanged">

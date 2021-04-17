@@ -156,6 +156,13 @@ namespace proyecto
             btnNewUser.IsEnabled = false;
         }
 
+        private void btnRegresar_Click_1(object sender, RoutedEventArgs e)
+        {
+            FormMenu n2 = new FormMenu();
+            n2.Show();
+            this.Close();
+        }
+
         private void LimpiarForm()
         {
 

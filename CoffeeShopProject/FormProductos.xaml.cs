@@ -379,5 +379,12 @@ namespace CoffeeShopProject
             }
 
         }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            FormMenu n2 = new FormMenu();
+            n2.Show();
+            this.Close();
+        }
     }
 }
