@@ -192,6 +192,8 @@ namespace CoffeeShopProject
 
         private void btRegresar_Click(object sender, RoutedEventArgs e)
         {
+            FormMenu n2 = new FormMenu();
+            n2.Show();
             this.Close();
         }
 

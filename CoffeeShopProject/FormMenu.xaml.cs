@@ -42,5 +42,12 @@ namespace CoffeeShopProject
             n2.Show();
             this.Close();
         }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            FormClientes n2 = new FormClientes();
+            n2.Show();
+            this.Close();
+        }
     }
 }

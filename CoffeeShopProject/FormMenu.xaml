@@ -12,7 +12,7 @@
         </Border>
         <Button Name="BtnProductos" Content="Productos" FontSize="24" Margin="616,164,184,415"></Button>
         <Button Name="BtnVentas"   Content="Ventas" FontSize="24" Margin="156,402,644,177" ></Button>
-        <Button Name="BtnClientes"  Content="Clientes" FontSize="24" Margin="616,402,184,177"  ></Button>
+        <Button Name="BtnClientes"  Content="Clientes" FontSize="24" Margin="616,402,184,177" Click="BtnClientes_Click"  ></Button>
         <Button Name="BtnE"  Content="Empleados" FontSize="24" Margin="386,278,414,301" Click="BtnE_Click"   ></Button>
         <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" FontSize="24" Margin="789,595,0,31" Width="98" Click="btLogout_Click"/>
 
