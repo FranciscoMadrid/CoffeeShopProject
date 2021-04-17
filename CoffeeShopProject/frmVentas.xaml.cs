@@ -50,8 +50,12 @@ namespace CoffeeShopProject
 
         private void btnaddProd_Click(object sender, RoutedEventArgs e)
         {
+            double total;
             dat.Add(new datos {fact=txtfactura.Text ,id = int.Parse(txtidProd.Text), prod=txtproducto.Text , precio=double.Parse(txtprecio.Text), cant = int.Parse(txtcant.Text), total= double.Parse(txtneto.Text)});
             dtresumen.ItemsSource = dat;
+            total = double.Parse(lbltotal.Content.ToString());
+            total += double.Parse(txtprecio.Text) * int.Parse(txtcant.Text);
+            lbltotal.Content = total.ToString();
         }
 
        class datos
@@ -92,7 +96,10 @@ namespace CoffeeShopProject
 
         private void txtidProd_KeyUp(object sender, KeyEventArgs e)
         {
-            LoadProd(txtidProd.Text);
+            if (!string.IsNullOrEmpty(txtidProd.Text))
+            {
+                LoadProd(txtidProd.Text);
+            }
         }
 
         private void txtcant_KeyUp(object sender, KeyEventArgs e)

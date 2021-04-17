@@ -1,4 +1,4 @@
-﻿<Window x:Class="CoffeeShopProject.MainWindow"
+﻿<Window x:Class="CoffeeShopProject.FormInventario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -17,7 +17,7 @@
         <TextBox Name="txtCantidad" HorizontalAlignment="Left" Margin="139,94,0,0" VerticalAlignment="Top" Width="160">
         </TextBox>
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="360,59,0,0" VerticalAlignment="Top" Width="76" Height="29" Click="btnIngresar_Click"/>
-        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="360,167,0,0" VerticalAlignment="Top" Width="76" Height="35"/>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="360,167,0,0" VerticalAlignment="Top" Width="76" Height="35" Click="btnRegresar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="360,109,0,0" VerticalAlignment="Top" Width="76" Height="33" Click="btnModificar_Click"/>
         <TextBox x:Name="txtcosto" HorizontalAlignment="Left" Margin="139,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
         <Label Content="Costo" HorizontalAlignment="Left" Margin="40,124,0,0" VerticalAlignment="Top" Width="75"/>

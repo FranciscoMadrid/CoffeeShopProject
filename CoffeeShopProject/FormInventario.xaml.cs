@@ -20,11 +20,11 @@ namespace CoffeeShopProject
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FormInventario : Window
     {
         private Inventario inventario = new Inventario();
         private int id = 0;
-        public MainWindow()
+        public FormInventario()
         {
             InitializeComponent();
             ShowInventario();
@@ -163,6 +163,13 @@ namespace CoffeeShopProject
                     ((ComboBox)ctr).SelectedIndex = -1;
             }
           
+        }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            FormMenu n2 = new FormMenu();
+            n2.Show();
+            this.Close();
         }
     }
 }

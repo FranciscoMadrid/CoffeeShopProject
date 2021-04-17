@@ -35,7 +35,7 @@
         <Label Content="Precio" HorizontalAlignment="Left" Margin="351,229,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtprecio" HorizontalAlignment="Left" Margin="416,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.4,-0.053"/>
         <Label Content="Total a pagar:" HorizontalAlignment="Left" Margin="855,561,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbltotal" Content="0.00L" HorizontalAlignment="Left" Margin="936,561,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbltotal" Content="0.00" HorizontalAlignment="Left" Margin="936,561,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dtresumen" Margin="22,274,10,82" IsReadOnly="True">
             <DataGrid.ColumnHeaderStyle>
                 <Style/>

@@ -20,6 +20,27 @@ namespace CoffeeShopProject
         public FormMenu()
         {
             InitializeComponent();
+    }
+
+        private void BtnE_Click(object sender, RoutedEventArgs e)
+        {
+             n2 = new FormInventario();
+            n2.Show();
+            this.Close();
+        }
+
+        private void BtnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            FormInventario n2 = new FormInventario();
+            n2.Show();
+            this.Close();
+        }
+
+        private void btLogout_Click(object sender, RoutedEventArgs e)
+        {
+            FormLogin n2 = new FormLogin();
+            n2.Show();
+            this.Close();
         }
     }
 }

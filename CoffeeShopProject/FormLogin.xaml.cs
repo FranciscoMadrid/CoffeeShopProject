@@ -19,11 +19,6 @@ namespace CoffeeShopProject
     {
         Logins logins = new Logins();
 
-        /*Informacion del empleado. Se guarda una vez que se verifique la cuenta y contrseña*/
-        int EmpleadoId = 0;
-        string EmpleadoNombre = null;
-        string EmpleadoApellido = null;
-        int TipoUsuario = 0;
         public FormLogin()
         {
             InitializeComponent();
@@ -41,10 +36,14 @@ namespace CoffeeShopProject
                 GetLoginData();
                 if(CheckEmpleadoID(logins.CheckCuenta().Id))
                 {
-                    EmpleadoId = logins.CheckCuenta().Id;
-                    EmpleadoNombre = logins.CheckCuenta().PrimerNombre;
-                    EmpleadoApellido = logins.CheckCuenta().UltimoNombre;
-                    TipoUsuario = logins.GetTipoUsuario(EmpleadoId);
+                    InfoLogin.EmpleadoID = logins.CheckCuenta().Id;
+                    InfoLogin.EmpNombre = logins.CheckCuenta().PrimerNombre;
+                    InfoLogin.EmpApellido = logins.CheckCuenta().UltimoNombre;
+                    InfoLogin.TipoUsuario = logins.GetTipoUsuario(InfoLogin.EmpleadoID);
+
+                    FormMenu n2 = new FormMenu();
+                    n2.Show();
+                    this.Close();
                 }
                 else
                 {
@@ -88,6 +87,11 @@ namespace CoffeeShopProject
         {
             txtContrasena.Clear();
             txtUsuario.Clear();
+        }
+
+        private void txtContrasena_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

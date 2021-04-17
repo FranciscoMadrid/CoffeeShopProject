@@ -43,7 +43,7 @@
                              FontFamily="Lato Semibold" FontSize="14" TextChanged="txtUsuario_TextChanged"/>
 
                     <TextBox x:Name="txtContrasena" Grid.Row="1" Margin="19,20,19,10" Grid.ColumnSpan="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                             FontFamily="Lato Semibold" FontSize="14"/>
+                             FontFamily="Lato Semibold" FontSize="14" TextChanged="txtContrasena_TextChanged"/>
 
                     <Button x:Name="btnLogging" Content="Login" Grid.Row="2" Grid.Column="0" Margin="19,11,19,21" BorderBrush="#357266" Click="btnLogging_Click"/>
                     <Button x:Name="btnSalir" Content="Salir" Grid.Row="2" Grid.Column="1" Margin="19,11,19,21" BorderBrush="#357266" Click="btnSalir_Click"/>
