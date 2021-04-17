@@ -24,9 +24,7 @@ namespace CoffeeShopProject
 
         private void BtnE_Click(object sender, RoutedEventArgs e)
         {
-             n2 = new FormInventario();
-            n2.Show();
-            this.Close();
+
         }
 
         private void BtnInventario_Click(object sender, RoutedEventArgs e)
