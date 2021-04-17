@@ -44,7 +44,7 @@ namespace CoffeeShopProject
 
                 cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
                 cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
-                cmd.Parameters.AddWithValue("@FKCategoriaID", FKCategoria);
+                cmd.Parameters.AddWithValue("@FKCategoria", FKCategoria);
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -102,13 +102,12 @@ namespace CoffeeShopProject
 
             try
             {
-                sqlConnection.Open();
-                string spNombre = @"[dbo].[sp_Productos_Show_Search]";
+                string spNombre = @"[dbo].[sp_Productos_Search]";
 
                 SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@NombreProducto", search);
+                cmd.Parameters.AddWithValue("@ProductoName", search);
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -131,18 +130,21 @@ namespace CoffeeShopProject
 
 
 
-        //Query para mostrar los productos generales en el datashow
+        /*//Query para mostrar los productos generales en el datashow
         public DataTable ShowProductoGeneral(string search) 
         {
             DataTable dt = new DataTable();
 
             try
             {
-                sqlConnection.Open();
+
                 string spProductoGeneral = @"[dbo].[sp_Productos_Show]";
                 SqlCommand cmd = new SqlCommand(spProductoGeneral,sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@ProductoName", search);
+
+                sqlConnection.Open();
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -160,7 +162,7 @@ namespace CoffeeShopProject
             return dt;
         
         }
-
+        */
 
         public DataTable GetCategory()
         {

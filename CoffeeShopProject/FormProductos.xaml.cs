@@ -61,7 +61,7 @@ namespace CoffeeShopProject
             switch(TypeOfProducto)
             {
                 case 0:
-                    dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral(txtbuscar.Text).DefaultView;
+                    dgProductoGenerales.ItemsSource = productos.SearchProducto(txtbuscar.Text).DefaultView;
                     break;
 
                 case 1:
@@ -80,7 +80,7 @@ namespace CoffeeShopProject
             gbComidas.Visibility = Visibility.Hidden;
 
             TypeOfProducto = 0;
-            dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral(txtbuscar.Text).DefaultView;
+            dgProductoGenerales.ItemsSource = productos.SearchProducto(txtbuscar.Text).DefaultView;
             cmbCategoria.ItemsSource = productos.GetCategory().DefaultView;
 
         }
@@ -175,12 +175,8 @@ namespace CoffeeShopProject
 
         private void UpdateProductos()
         {
-            if (CheckProductoData())
-            {
-                GetProductoData();
-                productos.InsertProducto();
-            }
-
+            GetProductoData();
+            productos.UpdateProducto(productos.Id);
         }
 
         private void InsertBebida()
@@ -278,7 +274,7 @@ namespace CoffeeShopProject
                 if (ctr.GetType() == typeof(ComboBox))
                     ((ComboBox)ctr).SelectedIndex = -1;
             }
-            dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral(txtbuscar.Text).DefaultView;
+            dgProductoGenerales.ItemsSource = productos.SearchProducto(txtbuscar.Text).DefaultView;
         }
 
         private void ClearBebidas()
@@ -293,8 +289,6 @@ namespace CoffeeShopProject
             dgBebidas.ItemsSource = Bebidas.ShowProducto(txtbuscar.Text).DefaultView;
         
         }
-
-       
 
         private void InsertComida()
         {
@@ -348,11 +342,6 @@ namespace CoffeeShopProject
             this.Close();
         }
 
-        //private void ShowProductoGeneral() 
-        //{
-        //    dgProductoGenerales.ItemsSource = productos.ShowProductoGeneral().DefaultView;
-        //}
-
         private void ClearComida ()
         {
             foreach (Control ctr in GridgbComidas.Children)
@@ -362,7 +351,7 @@ namespace CoffeeShopProject
                 if (ctr.GetType() == typeof(ComboBox))
                     ((ComboBox)ctr).SelectedIndex = -1;
             }
-            dgComidas.ItemsSource = Bebidas.ShowProducto(txtbuscar.Text).DefaultView;
+            dgComidas.ItemsSource = Comidas.ShowProducto(txtbuscar.Text).DefaultView;
         }
 
         private void dgComidas_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -387,8 +376,6 @@ namespace CoffeeShopProject
                 txtId.Text = dataRow[0].ToString();
                 txtNombre.Text = dataRow[1].ToString();
                 txtDescripcion.Text = dataRow[2].ToString();
-
-              
             }
 
         }
