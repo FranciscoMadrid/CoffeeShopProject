@@ -155,14 +155,15 @@ namespace CoffeeShopProject
 
         private void ClearInventario() 
         {
-            foreach (Control ctr in GridgbInventario.Children)
-            {
-                if (ctr.GetType() == typeof(TextBox))
-                    ((TextBox)ctr).Text = string.Empty;
-                if (ctr.GetType() == typeof(ComboBox))
-                    ((ComboBox)ctr).SelectedIndex = -1;
-            }
+            txtId.Text = "";
+            txtcosto.Text ="";
+            txtCantidad.Text = "";
           
+        }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            ClearInventario();
         }
     }
 }
