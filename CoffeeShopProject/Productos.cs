@@ -96,19 +96,38 @@ namespace CoffeeShopProject
             }
         }
 
-        //public DataTable SearchProducto(int tipo)
-        //{
-        //    DataTable dt = new DataTable();
+        public DataTable SearchProducto(string search)
+        {
+            DataTable dt = new DataTable();
 
-        //    try
-        //    {
-        //        sqlConnection.Open();
-        //        string
-        //    }
-        //    catch { }
-        //    finally { }
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = @"[dbo].[sp_Productos_Show_Search]";
 
-        //}
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@NombreProducto", search);
+
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+                dataAdapter.Fill(dt);
+            }
+            catch(Exception ex) 
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+
+        }
 
 
 
