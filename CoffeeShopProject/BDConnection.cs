@@ -16,7 +16,7 @@ namespace CoffeeShopProject
 
         public BDConnection()
         {
-            
+
         }
 
         public void CheckConnection ()
@@ -36,6 +36,6 @@ namespace CoffeeShopProject
                 sqlConnection.Close();
             }
         }
-        
+
     }
 }
