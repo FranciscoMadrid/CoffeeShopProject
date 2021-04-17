@@ -153,19 +153,29 @@ namespace CoffeeShopProject
            
         }
 
-        private void ClearInventario() 
+        private void ClearInventario()
         {
-            foreach (Control ctr in GridgbInventario.Children)
-            {
-                if (ctr.GetType() == typeof(TextBox))
-                    ((TextBox)ctr).Text = string.Empty;
-                if (ctr.GetType() == typeof(ComboBox))
-                    ((ComboBox)ctr).SelectedIndex = -1;
-            }
-          
+            txtId.Text = "";
+            txtcosto.Text = "";
+            txtCantidad.Text = "";
+
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            FormMenu n2 = new FormMenu();
+            n2.Show();
+            this.Close();
+        }
+
+        
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            ClearInventario();
+        }
+
+        private void btnRegresar_Click_1(object sender, RoutedEventArgs e)
         {
             FormMenu n2 = new FormMenu();
             n2.Show();
