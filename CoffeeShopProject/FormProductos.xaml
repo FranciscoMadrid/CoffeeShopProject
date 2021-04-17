@@ -1,0 +1,143 @@
+﻿<Window x:Class="CoffeeShopProject.FormProductos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoffeeShopProject"
+        mc:Ignorable="d"
+        Title="FormProductos" Height="450" Width="800">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#357266" Offset=".5"/>
+                    <GradientStop Color="White" Offset=".5"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Height="39" Margin="128,321,0,0" VerticalAlignment="Top" Width="76" Click="btnIngresar_Click"/>
+        <Button Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Height="39" Margin="228,321,0,0" VerticalAlignment="Top" Width="76" Click="btnModificar_Click"/>
+        <Button Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="39" Margin="338,321,0,0" VerticalAlignment="Top" Width="76" Click="btnCancelar_Click"/>
+        <Button Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="39" Margin="434,321,0,0" VerticalAlignment="Top" Width="76" Click="btnLimpiar_Click"/>
+        <TextBox x:Name="txtbuscar" HorizontalAlignment="Left" Height="20" Margin="93,22,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" TextChanged="txtbuscar_TextChanged"/>
+        <Label Content="Buscar:" HorizontalAlignment="Left" Margin="32,17,0,0" VerticalAlignment="Top"/>
+        <TabControl Name="tbProductos" Margin="25,57,271,129" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Productos Generales">
+                <DockPanel>
+                    <DataGrid Name="dgProductoGenerales" SelectionChanged="dgProductoGenerales_SelectionChanged"/>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Productos Bebidas">
+                <DockPanel>
+                    <DataGrid Name="dgBebidas" SelectionChanged="dgBebidas_SelectionChanged" IsReadOnly="True"/>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Productos Comidas">
+                <DockPanel>
+                    <DataGrid Name="dgComidas" IsReadOnly="True" SelectionChanged="dgComidas_SelectionChanged"></DataGrid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+        <GroupBox Name="gbProductoGeneral" Header="Detalles de Producto" Margin="534,19,10,196">
+            <Grid x:Name="GridgbProducto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox Name="txtId" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Name="Lbl" Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
+                <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Descripcion:" Grid.Row="2" Grid.Column="0"/>
+                <TextBox Name="txtDescripcion" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
+                <ComboBox Name="cmbCategoria" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath ="CategoriaDesc" SelectedValuePath="CategoriaID"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,196" Visibility="Hidden">
+            <Grid x:Name="GridgbBebidas">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox Name="txtIdb" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2" IsReadOnly="True"/>
+
+                <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
+                <TextBox Name="txtNombreb" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Descripcion:" Grid.Row="2" Grid.Column="0"/>
+                <TextBox Name="txtDescripcionb" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
+                <ComboBox Name="cmbCategoriab" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath ="CategoriaDesc" SelectedValuePath="CategoriaID"/>
+
+                <Label Content="Ingredientes:" Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="txtIngredienteb" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Tamaño:" Grid.Row="5" Grid.Column="0"/>
+                <ComboBox x:Name="cmbTamano" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath="BebidaTamano" SelectedValuePath="BebidaTamanoID"/>
+
+                <Label Content="Costo:" Grid.Row="6" Grid.Column="0"/>
+                <TextBox x:Name="txtCostob" Grid.Row="6" Grid.Column="1" Margin="0,2,0,2"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Comidas" Name="gbComidas" Margin="534,19,10,196" Visibility="Hidden">
+            <Grid x:Name="GridgbComidas">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Id:" Grid.Row="0" Grid.Column="0"/>
+                <TextBox x:Name="txtIdc" Grid.Row="0" Grid.Column="1" Margin="0,2,0,2" IsReadOnly="True"/>
+
+                <Label  Content="Nombre Producto:" Grid.Row="1" Grid.Column="0"/>
+                <TextBox x:Name="txtNombreProductoc" Grid.Row="1" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Descripcion:"  Grid.Row="2" Grid.Column="0"/>
+                <TextBox x:Name="txtDescripcionc" Grid.Row="2" Grid.Column="1"  Margin="0,2,0,2"/>
+
+                <Label Content="Categoria:" Grid.Row="3" Grid.Column="0"/>
+                <ComboBox Name="cmbCategoriac" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath ="CategoriaDesc" SelectedValuePath="CategoriaID"/>
+
+                <Label Content="Ingredientes:" Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="txtIngredientesc" Grid.Row="4" Grid.Column="1" Margin="0,2,0,2"/>
+
+                <Label Content="Costo:" Grid.Row="5" Grid.Column="0"/>
+                <TextBox x:Name="txtcostoc" Grid.Row="5" Grid.Column="1" Margin="0,2,0,2"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

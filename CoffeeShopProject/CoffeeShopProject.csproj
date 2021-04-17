@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="SQL-Database\LoginSP\" />
+    <Folder Include="Imagenes\FormProductos\" />
+    <Folder Include="SQL-Database\" />
   </ItemGroup>
 
   <ItemGroup>

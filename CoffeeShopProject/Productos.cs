@@ -44,7 +44,7 @@ namespace CoffeeShopProject
 
                 cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
                 cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
-                cmd.Parameters.AddWithValue("@FKCategoriaID", FKCategoria);
+                cmd.Parameters.AddWithValue("@FKCategoria", FKCategoria);
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
@@ -96,34 +96,55 @@ namespace CoffeeShopProject
             }
         }
 
-        //public DataTable SearchProducto(int tipo)
-        //{
-        //    DataTable dt = new DataTable();
-
-        //    try
-        //    {
-        //        sqlConnection.Open();
-        //        string
-        //    }
-        //    catch { }
-        //    finally { }
-
-        //}
-
-
-
-        //Query para mostrar los productos generales en el datashow
-        public DataTable ShowProductoGeneral() 
+        public DataTable SearchProducto(string search)
         {
             DataTable dt = new DataTable();
 
             try
             {
+                string spNombre = @"[dbo].[sp_Productos_Search]";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@ProductoName", search);
+
                 sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+                dataAdapter.Fill(dt);
+            }
+            catch(Exception ex) 
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+
+        }
+
+
+
+        /*//Query para mostrar los productos generales en el datashow
+        public DataTable ShowProductoGeneral(string search) 
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+
                 string spProductoGeneral = @"[dbo].[sp_Productos_Show]";
                 SqlCommand cmd = new SqlCommand(spProductoGeneral,sqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@ProductoName", search);
+
+                sqlConnection.Open();
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -141,6 +162,7 @@ namespace CoffeeShopProject
             return dt;
         
         }
+        */
 
         public DataTable GetCategory()
         {
@@ -167,5 +189,32 @@ namespace CoffeeShopProject
             }
             return dt;
         }
+
+        //public DataTable GetCategoria()
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    try
+        //    {
+        //        sqlConnection.Open();
+        //        string spNombre = "Select CategoriaID,CategoriaDesc from Categorias";
+        //        SqlCommand cmd = new SqlCommand();
+        //        SqlDataAdapter sda = new SqlDataAdapter();
+        //        sda.Fill(dt);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        sqlConnection.Close();
+        //        MessageBox.Show(ex.Message);
+                
+        //    }
+        //    finally
+        //    {
+        //        sqlConnection.Close();
+        //    }
+        //    return dt;
+
+        //}
+
     }
 }

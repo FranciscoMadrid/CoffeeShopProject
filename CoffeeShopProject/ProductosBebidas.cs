@@ -63,8 +63,6 @@ namespace CoffeeShopProject
                 }
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
-
-                MessageBox.Show("All good");
             }
             catch (Exception ex)
             {
@@ -81,6 +79,7 @@ namespace CoffeeShopProject
             -FFMS*/
 
         public override void UpdateProducto(int id) 
+
         {
             try
             {
@@ -110,8 +109,6 @@ namespace CoffeeShopProject
 
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
-
-                MessageBox.Show("All good");
             }
             catch (Exception ex)
             {
@@ -122,6 +119,63 @@ namespace CoffeeShopProject
             {
                 sqlConnection.Close();
             }
+        }
+
+        public DataTable ShowProducto(string search)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string spNombre = @"[dbo].[sp_Productos_Bebidas_Show]";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@NombreProducto", search);
+
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+                dataAdapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable GetTamano()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                sqlConnection.Open();
+                string spNombre = "SELECT BebidaTamanoID, BebidaTamano FROM BebidasTamano";
+
+                SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                sqlConnection.Close();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return dt;
         }
     }
 }
