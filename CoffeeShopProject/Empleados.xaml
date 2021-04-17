@@ -25,7 +25,7 @@
             <ComboBoxItem Content="Vendedor"/>
             <ComboBoxItem Content="Gerente"/>
         </ComboBox>
-        <DataGrid x:Name="dtempleados" Margin="392,145,10,87" SelectionChanged="dtempleados_SelectionChanged"/>
+        <DataGrid x:Name="dtempleados" Margin="392,145,10,87" SelectionChanged="dtempleados_SelectionChanged" IsReadOnly="True"/>
         <Button x:Name="btningresar" Content="Ingresar" HorizontalAlignment="Left" Margin="18,442,0,0" Width="112" FontSize="16" Click="btningresar_Click" Height="28" VerticalAlignment="Top"/>
         <Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="149,442,0,0" Width="106" FontSize="16" Click="btnmodificar_Click" RenderTransformOrigin="0.604,0.394" Height="28" VerticalAlignment="Top"/>
         <Button x:Name="btnregresar" Content="Eliminar" HorizontalAlignment="Left" Margin="274,440,0,0" Width="101" FontSize="16" Click="btnregresar_Click" Height="30" VerticalAlignment="Top"/>
