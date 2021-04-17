@@ -29,8 +29,8 @@ namespace CoffeeShopProject
             InitializeComponent();
             ShowInventario();
             ShowProducto();
-            BDConnection connection = new BDConnection();
-            connection.CheckConnection();
+            //BDConnection connection = new BDConnection();
+            //connection.CheckConnection();
 
         }
 
@@ -151,6 +151,18 @@ namespace CoffeeShopProject
 
             
            
+        }
+
+        private void ClearInventario() 
+        {
+            foreach (Control ctr in GridgbInventario.Children)
+            {
+                if (ctr.GetType() == typeof(TextBox))
+                    ((TextBox)ctr).Text = string.Empty;
+                if (ctr.GetType() == typeof(ComboBox))
+                    ((ComboBox)ctr).SelectedIndex = -1;
+            }
+          
         }
     }
 }

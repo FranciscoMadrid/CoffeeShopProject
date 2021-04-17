@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:CoffeeShopProject"
         mc:Ignorable="d"
         Title="Inventariocd " Height="467" Width="550">
-    <Grid Margin="0,0,10,0">
+    <Grid Margin="0,0,10,0" Name="GridgbInventario">
+        
         <Label Content="Inventario Id:" HorizontalAlignment="Left" Margin="379,10,0,0" VerticalAlignment="Top"/>
         <Label Name="lblInventarioID" Content="-" HorizontalAlignment="Left" Margin="479,10,0,0" VerticalAlignment="Top"/>
 
@@ -24,7 +25,7 @@
 
         <Label Content="Fecha de Ingreso:" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top"/>
 
-        <TabControl Margin="37,226,38,39"  >
+        <TabControl Margin="37,254,38,11"  >
             <TabItem Width="150" Height="20" Header="Productos">
                 <TabPanel>
                     <DataGrid x:Name="dgproductos" Height="150" Width="450" SelectionChanged="dgproductos_SelectionChanged"  SelectionMode="Single"  SelectionUnit="FullRow" IsReadOnly="True" />
@@ -36,6 +37,7 @@
                 </TabPanel>
             </TabItem>
         </TabControl>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="360,220,0,0" VerticalAlignment="Top" Width="76" Height="35"/>
 
 
     </Grid>
