@@ -78,7 +78,8 @@ namespace CoffeeShopProject
             El SP lo hize de tal manera que si se ingresa null en algun campo lo ignora. Si da error por favor avisarme.
             -FFMS*/
 
-        public virtual void UpdateProducto(int idd) 
+        public override void UpdateProducto(int id) 
+
         {
             try
             {
@@ -88,7 +89,7 @@ namespace CoffeeShopProject
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ProductoID", idd);
+                cmd.Parameters.AddWithValue("@ProductoID", id);
                 cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
                 cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 

@@ -62,7 +62,7 @@ namespace CoffeeShopProject
             }
         }
 
-        public virtual void UpdateProducto()
+        public virtual void UpdateProducto(int id)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace CoffeeShopProject
                 SqlCommand cmd = new SqlCommand(spNombre, sqlConnection);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ProductoID", Id);
+                cmd.Parameters.AddWithValue("@ProductoID", id);
                 cmd.Parameters.AddWithValue("@ProductoNombre", ProductoNombre);
                 cmd.Parameters.AddWithValue("@ProductoDesc", ProductoDesc);
                 
@@ -113,7 +113,7 @@ namespace CoffeeShopProject
 
 
         //Query para mostrar los productos generales en el datashow
-        public DataTable ShowProductoGeneral() 
+        public DataTable ShowProductoGeneral(string search) 
         {
             DataTable dt = new DataTable();
 
@@ -143,8 +143,6 @@ namespace CoffeeShopProject
         }
 
 
-
-
         public DataTable GetCategory()
         {
             DataTable dt = new DataTable();
@@ -170,6 +168,32 @@ namespace CoffeeShopProject
             }
             return dt;
         }
+
+        //public DataTable GetCategoria()
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    try
+        //    {
+        //        sqlConnection.Open();
+        //        string spNombre = "Select CategoriaID,CategoriaDesc from Categorias";
+        //        SqlCommand cmd = new SqlCommand();
+        //        SqlDataAdapter sda = new SqlDataAdapter();
+        //        sda.Fill(dt);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        sqlConnection.Close();
+        //        MessageBox.Show(ex.Message);
+                
+        //    }
+        //    finally
+        //    {
+        //        sqlConnection.Close();
+        //    }
+        //    return dt;
+
+        //}
 
     }
 }

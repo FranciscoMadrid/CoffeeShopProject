@@ -32,7 +32,7 @@
             </TabItem>
         </TabControl>
         <GroupBox Name="gbProductoGeneral" Header="Detalles de Producto" Margin="534,19,10,227" Visibility="Hidden">
-            <Grid>
+            <Grid x:Name="GridgbProducto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="55*"/>
                     <ColumnDefinition Width="67*"/>
@@ -57,7 +57,7 @@
                 <TextBox Name="txtDescripcion" Grid.Row="2" Grid.Column="1" Margin="0,2,0,2"/>
 
                 <Label Content="Categoria:"  Grid.Row="3" Grid.Column="0"/>
-                <ComboBox Name="cmbCategoria" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2"/>
+                <ComboBox Name="cmbCategoria" Grid.Row="3" Grid.Column="1" Margin="0,2,0,2" DisplayMemberPath ="CategoriaDesc" SelectedValuePath="CategoriaID" />
             </Grid>
         </GroupBox>
         <GroupBox Name="gbBebidas" Header="Bebidas" Margin="534,19,10,227" Visibility="Hidden">
