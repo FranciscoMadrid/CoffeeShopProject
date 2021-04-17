@@ -18,7 +18,11 @@ namespace CoffeeShopProject
     public partial class FormLogin : Window
     {
         Logins logins = new Logins();
+
+        /*Informacion del empleado. Se guarda una vez que se verifique la cuenta y contrseña*/
         int EmpleadoId = 0;
+        string EmpleadoNombre = null;
+        string EmpleadoApellido = null;
         int TipoUsuario = 0;
         public FormLogin()
         {
@@ -35,11 +39,12 @@ namespace CoffeeShopProject
             if(CheckLoginData())
             {
                 GetLoginData();
-                if(CheckEmpleadoID(logins.CheckCuenta()))
+                if(CheckEmpleadoID(logins.CheckCuenta().Id))
                 {
-                    EmpleadoId = logins.CheckCuenta();
+                    EmpleadoId = logins.CheckCuenta().Id;
+                    EmpleadoNombre = logins.CheckCuenta().PrimerNombre;
+                    EmpleadoApellido = logins.CheckCuenta().UltimoNombre;
                     TipoUsuario = logins.GetTipoUsuario(EmpleadoId);
-                    MessageBox.Show("Ingreso exitoso!");
                 }
                 else
                 {

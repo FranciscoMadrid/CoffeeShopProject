@@ -13,9 +13,9 @@ namespace CoffeeShopProject
         {
         }
 
-        public int CheckCuenta()
+        public EmpleadosUsuarios CheckCuenta()
         {
-            int EmpleadoID = 0;
+            EmpleadosUsuarios Emp = new EmpleadosUsuarios();
             try
             {
                 string spNombre = @"[dbo].[sp_Empleados_EmpleadosUsuarios_Checker]";
@@ -29,21 +29,28 @@ namespace CoffeeShopProject
                 cmd.Parameters.Add("@EmpleadoId", SqlDbType.Int);
                 cmd.Parameters["@EmpleadoId"].Direction = ParameterDirection.Output;
 
+                cmd.Parameters.Add("@EmpleadoNombre", SqlDbType.VarChar, 70);
+                cmd.Parameters["@EmpleadoNombre"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add("@EmpleadoApellido", SqlDbType.VarChar, 70);
+                cmd.Parameters["@EmpleadoApellido"].Direction = ParameterDirection.Output;
+
                 sqlConnection.Open();
                 cmd.ExecuteNonQuery();
 
-                EmpleadoID = int.Parse(cmd.Parameters["@EmpleadoId"].Value.ToString());
+                Emp.Id = int.Parse(cmd.Parameters["@EmpleadoId"].Value.ToString());
+                Emp.PrimerNombre = cmd.Parameters["@EmpleadoNombre"].Value.ToString();
+                Emp.UltimoNombre = cmd.Parameters["@EmpleadoApellido"].Value.ToString();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
             {
                 sqlConnection.Close();
             }
-            return EmpleadoID;
+            return Emp;
         }
 
         public int GetTipoUsuario(int id)
