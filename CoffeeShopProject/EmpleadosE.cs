@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace CoffeeShopProject
 {
-    class Empleados : BDConnection
+    class EmpleadosE : BDConnection
     {
         public int Id { get; set; }
         public string PrimerNombre { get; set; }
@@ -19,7 +19,7 @@ namespace CoffeeShopProject
 
         /*Clase para ingresar datos en la tabla empleado. SOLO LA TABLA EMPLEADO. Solo seria usada cuando solo se quieran alterar los datos en Empleados.
           EJE: Primernombre, ultimo nombre, correo, direcion, cargo o estado. Para hacer cambios en el usuario y la contraseña utilizar EmpleadosUsuarios*/
-        public Empleados(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
+        public EmpleadosE(int id, string primerNombre, string ultimoNombre, string correo, string direccion, int fKCargo, int estado)
         {
             Id = id;
             PrimerNombre = primerNombre;
@@ -30,7 +30,7 @@ namespace CoffeeShopProject
             Estado = estado;
         }
 
-        public Empleados()
+        public EmpleadosE()
         {
             Id = 0;
             PrimerNombre = null;

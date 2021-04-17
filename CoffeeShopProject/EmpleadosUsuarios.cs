@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace CoffeeShopProject
 {
-    class EmpleadosUsuarios : Empleados
+    class EmpleadosUsuarios : EmpleadosE
     {
         public int FKTipoUsuario { get; set; }
         public string Usuario { get; set; }
