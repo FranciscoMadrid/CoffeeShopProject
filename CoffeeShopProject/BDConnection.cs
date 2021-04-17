@@ -23,6 +23,7 @@ namespace CoffeeShopProject
         {
             try
             {
+
                 sqlConnection.Open();
                 MessageBox.Show("Estas connectado a " + sqlConnection.Database.ToString() + " exitosamente!!");
             }
@@ -30,12 +31,16 @@ namespace CoffeeShopProject
             {
                 sqlConnection.Close();
                 MessageBox.Show(ex.Message);
+
+
             }
-            finally
+
+            finally 
             {
                 sqlConnection.Close();
             }
         }
+
 
     }
 }
