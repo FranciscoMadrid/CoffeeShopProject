@@ -34,8 +34,8 @@ namespace CoffeeShopProject
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Empleados man = new Empleados();
-            man.Show();
+            frmVentas vent = new frmVentas();
+            vent.Show();
         }
     }
 }
